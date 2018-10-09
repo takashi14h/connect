@@ -1,0 +1,39 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  before_front_image_id: MyString
+  before_side_image_id: MyString
+  before_back_image_id: MyString
+  order_front_image_id: MyString
+  order_side_image_id: MyString
+  order_back_image_id: MyString
+  after_front_image_id: MyString
+  after_side_image_id: MyString
+  after_back_image_id: MyString
+  salon: MyString
+  stylist: MyString
+  menu: MyString
+  price: 1
+  length: MyString
+  color: MyString
+  comment: MyText
+
+two:
+  user_id: 1
+  before_front_image_id: MyString
+  before_side_image_id: MyString
+  before_back_image_id: MyString
+  order_front_image_id: MyString
+  order_side_image_id: MyString
+  order_back_image_id: MyString
+  after_front_image_id: MyString
+  after_side_image_id: MyString
+  after_back_image_id: MyString
+  salon: MyString
+  stylist: MyString
+  menu: MyString
+  price: 1
+  length: MyString
+  color: MyString
+  comment: MyText
