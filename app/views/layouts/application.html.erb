@@ -10,6 +10,28 @@
   </head>
 
   <body>
+    <nav class="navbar navbar-default navbar-shadow">
+      <div class="container-fluid">
+        <% if user_signed_in? %>
+          <div class="collapse navbar-collapse navbar-right" id="navbarEexample4">
+            <button type="button" class="btn btn-default navbar-btn navbar-color"><%= fa_icon("user-circle lg")%>
+            <%= current_user.email %></button>
+          </div>
+        <% else %>
+          <div class="collapse navbar-collapse navbar-left" id="navbarEexample4">
+            <button type="button" class="btn btn-default navbar-btn navbar-color"><%= fa_icon("user-circle lg")%>
+            Sign in</button>
+            <button type="button" class="btn btn-default navbar-btn navbar-color">Sign up</button>
+          </div>
+          <div class="navbar-header">
+            <%= link_to "C:connect", root_path, class: "navbar-brand navbar-center1"%>
+          </div>
+        <% end %>
+        <div class="navbar-header">
+          <%= link_to "C:connect", root_path, class: "navbar-brand navbar-center2"%>
+        </div>
+      </div>
+    </nav>
     <%= yield %>
   </body>
 </html>
