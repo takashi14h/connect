@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2018_10_09_091008) do
     t.string "salon"
     t.string "stylist"
     t.string "menu"
-    t.integer "price"
+    t.string "price"
     t.string "length"
     t.string "color"
     t.text "comment"

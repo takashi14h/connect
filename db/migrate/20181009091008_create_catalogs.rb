@@ -14,7 +14,7 @@ class CreateCatalogs < ActiveRecord::Migration[5.2]
       t.string :salon
       t.string :stylist
       t.string :menu
-      t.integer :price
+      t.string :price
       t.string :length
       t.string :color
       t.text :comment
