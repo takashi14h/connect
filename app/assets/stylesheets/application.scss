@@ -40,3 +40,52 @@
  	color: black !important;
  	font-weight: bold;
  }
+
+ .flex{
+ 	display: flex;
+ 	flex-flow: row wrap;
+ }
+
+ .box{
+ 	width: 232px;
+ 	height: 476px;
+ 	border-radius: 2px 2px 0 0;
+ 	background-color: red;
+ 	margin: 10px;
+ }
+
+ .image{
+ 	width: 232px;
+ 	height: 310px;
+ 	background-color: blue;
+ }
+
+ .price{
+ 	width: 232px;
+ 	height: 66px;
+ 	background-color: orange;
+ }
+
+ .like{
+ 	width: 232px;
+ 	height: 41px;
+ 	background-color: yellow;
+ }
+
+ .user{
+ 	width: 232px;
+ 	height: 59px;
+ 	background-color: green;
+ }
+
+
+
+
+
+
+
+
+
+
+
+
