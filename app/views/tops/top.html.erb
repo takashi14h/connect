@@ -7,13 +7,15 @@
         	<% @catalogs.each do |catalog| %>
 	        	<div class="box">
 	        		<div class="image">
-	        			<%= attachment_image_tag  catalog, :after_front_image, :fill, 232, 310, format: 'jpeg' %>
+	        			<%= attachment_image_tag  catalog, :after_front_image, :fill, 230, 308, format: 'jpeg' %>
 	        		</div>
-	        		<div class="price">
-	        		</div>
-	        		<div class="like">
+	        		<div class="btn-group like" role="group">
+	        			<%= link_to 'お気に入り', '#' ,class: 'col-md-6 glyphicon glyphicon-heart-empty' %> 
+	        			<%= link_to 'いいね', '#' ,class: 'col-md-6 glyphicon glyphicon-star-empty' %> 
 	        		</div>
 	        		<div class="user">
+	        			<%= fa_icon("user-circle lg")%>
+           			    <%= current_user.email %>
 	        		</div>
 	        	</div>
 	        <% end %>
@@ -23,7 +25,14 @@
         	<div class="box">
         		<div class="image">
         		</div>
-        		<div class="price">
+        		<div class="like">
+        		</div>
+        		<div class="user">
+        		</div>
+        	</div>
+
+        	<div class="box">
+        		<div class="image">
         		</div>
         		<div class="like">
         		</div>
@@ -34,7 +43,14 @@
         	<div class="box">
         		<div class="image">
         		</div>
-        		<div class="price">
+        		<div class="like">
+        		</div>
+        		<div class="user">
+        		</div>
+        	</div>
+
+        	<div class="box">
+        		<div class="image">
         		</div>
         		<div class="like">
         		</div>
@@ -45,8 +61,6 @@
         	<div class="box">
         		<div class="image">
         		</div>
-        		<div class="price">
-        		</div>
         		<div class="like">
         		</div>
         		<div class="user">
@@ -56,8 +70,6 @@
         	<div class="box">
         		<div class="image">
         		</div>
-        		<div class="price">
-        		</div>
         		<div class="like">
         		</div>
         		<div class="user">
@@ -66,30 +78,6 @@
 
         	<div class="box">
         		<div class="image">
-        		</div>
-        		<div class="price">
-        		</div>
-        		<div class="like">
-        		</div>
-        		<div class="user">
-        		</div>
-        	</div>
-
-        	<div class="box">
-        		<div class="image">
-        		</div>
-        		<div class="price">
-        		</div>
-        		<div class="like">
-        		</div>
-        		<div class="user">
-        		</div>
-        	</div>
-
-        	<div class="box">
-        		<div class="image">
-        		</div>
-        		<div class="price">
         		</div>
         		<div class="like">
         		</div>
