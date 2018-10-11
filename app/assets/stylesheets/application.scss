@@ -32,7 +32,8 @@
 
  .navbar-color{
  	background-color: #ffffff;
- 	border-color: #f5f5f5;
+ 	border-color: #ffffff;
+ 	color: #000000 !important;
  }
 
  .navbar-center1{
@@ -87,6 +88,9 @@
  	border: solid 1px #C0C0C0;
  }
 
+li {
+  list-style: none;
+}
 
 
 
