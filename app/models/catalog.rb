@@ -12,11 +12,12 @@ class Catalog < ApplicationRecord
     has_many :favorites, dependent: :destroy
     has_many :likes, dependent: :destroy
     
-    def favorited_by?(user)
+    def favorite_user?(user_id)
       favorites.where(user_id: user.id).exists?
     end
 
-    def liked_by?(user)
+
+    def like_user?(user_id)
       likes.where(user_id: user.id).exists?
     end
 end

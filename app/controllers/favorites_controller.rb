@@ -2,15 +2,16 @@ class FavoritesController < ApplicationController
   def index
   end
   def create
-    catalog = Catalog.find(params[:catalog_id])
-    favorite = current_user.favorites.new(catalog_id: catalog.id)
-    favorite.save
-    redirect_to root_path(catalog)
+    @favorite = Favorite.create(user_id: current_user.id, catalog_id: params[:catalog_id])
+    @catalogs = Catalog.find(params[:catalog_id])
+    @favorite_count = @catalogs.favorites.count
+
   end
   def destroy
-    catalog = Catalog.find(params[:catalog_id])
-    favorite = current_user.favorites.find_by(catalog_id: catalog.id)
+    favorite = Favorite.find_by(user_id: current_user.id, catalog_id: params[:catalog_id])
     favorite.destroy
-    redirect_to root_path(catalog)
+    @catalogs = Catalog.find(params[:catalog_id])
+    @favorite_count = @catalogs.favorites.count
   end
+
 end

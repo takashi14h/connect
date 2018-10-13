@@ -1,14 +1,13 @@
 class LikesController < ApplicationController
   def create
-    catalog = Catalog.find(params[:catalog_id])
-    like = current_user.likes.new(catalog_id: catalog.id)
-    like.save
-    redirect_to root_path(catalog)
+    @like = Like.create(user_id: current_user.id, catalog_id: params[:catalog_id])
+    @catalogs = Catalog.find(params[:catalog_id])
+    @like_count = @catalogs.likes.count
   end
   def destroy
-    catalog = Catalog.find(params[:catalog_id])
-    like = current_user.likes.find_by(catalog_id: catalog.id)
+    like = Like.find_by(user_id: current_user.id, catalog_id: params[:catalog_id])
     like.destroy
-    redirect_to root_path(catalog)
+    @catalogs = Catalog.find(params[:catalog_id])
+    @like_count = @catalogs.likes.count
   end
 end

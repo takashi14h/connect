@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-  get 'favorites/index'
   devise_for :users
   root 'tops#top'
-  
+  # get 'favorites/index'
   # get 'catalogs/new'
   # get 'catalogs/index'
   # get 'catalogs/show'

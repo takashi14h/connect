@@ -10,36 +10,12 @@
 	        			<%= attachment_image_tag  catalog, :after_front_image, :fill, 230, 308, format: 'jpeg' %>
 	        		</div>
 	        		<div class="btn-group like" role="group">
-                        <% if catalog.favorited_by?(current_user) %>
-                          <li>
-                            <%= link_to catalog_favorites_path(catalog), class: 'col-md-6', style:"color: #e73554;", method: :delete do %>
-                              <i class="glyphicon glyphicon-plus-sign" aria-hidden="true"></i>
-                              <%= catalog.favorites.count %>
-                            <% end %>
-                          </li>
-                        <% else %>
-                          <li>
-                            <%= link_to catalog_favorites_path(catalog), class: 'col-md-6', method: :post do %>
-                              <i class="glyphicon glyphicon-plus-sign" aria-hidden="true"></i>
-                              <%= catalog.favorites.count %>
-                            <% end %>
-                          </li>
-                        <% end %>
-                        <% if catalog.liked_by?(current_user) %>
-                          <li>
-                            <%= link_to catalog_likes_path(catalog), class: 'col-md-6', style:"color: #e73554;", method: :delete do %>
-                              <i class="glyphicon glyphicon-heart" aria-hidden="true"></i>
-                              <%= catalog.likes.count %>
-                            <% end %>
-                          </li>
-                        <% else %>
-                          <li>
-                            <%= link_to catalog_likes_path(catalog), class: 'col-md-6', method: :post do %>
-                              <i class="glyphicon glyphicon-heart-empty" aria-hidden="true"></i>
-                              <%= catalog.likes.count %>
-                            <% end %>
-                          </li>
-                        <% end %>
+                        <div class="favorite-buttons">
+                          <%= render 'catalogs/favorite', catalogs: catalog, favorite_count: catalog.favorites.count %>
+                        </div>
+                        <div class="like-buttons">
+                          <%= render 'catalogs/like', catalogs: catalog, like_count: catalog.likes.count %>
+                        </div>
 	        		</div>
 	        		<div class="user">
 	        			<%= fa_icon("user-circle lg")%>
