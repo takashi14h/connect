@@ -26,6 +26,34 @@ class CatalogsController < ApplicationController
   def destroy
   end
 
+  def fav1
+    catalog = Catalog.find(params[:id])
+    if catalog.favorited_by?(current_user)
+      fav = current_user.favorites.find_by(catalog_id: catalog.id)
+      fav.destroy
+      render json: [catalog.id, catalog.favorites.count]
+    else
+      fav = current_user.favorites.new(catalog_id: catalog.id)
+      fav.save
+      render json: [catalog.id, catalog.favorites.count]
+    end
+
+  end
+
+  def fav2
+    catalog = Catalog.find(params[:id])
+    if catalog.liked_by?(current_user)
+      fav = current_user.likes.find_by(catalog_id: catalog.id)
+      fav.destroy
+      render json: [catalog.id, catalog.likes.count]
+    else
+      fav = current_user.likes.new(catalog_id: catalog.id)
+      fav.save
+      render json: [catalog.id, catalog.likes.count]
+    end
+
+  end
+
   private
 
   def catalog_params

@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   # get 'catalogs/edit'
   # get 'catalogs/update'
   # get 'catalogs/destroy'
+  get 'catalogs/fav1/:id' => 'catalogs#fav1', as: "fav1_catalogs"
+  get 'catalogs/fav2/:id' => 'catalogs#fav2', as: "fav2_catalogs"
   resources :catalogs do
     resource :favorites, only: [:index, :create, :destroy]
     resource :likes, only: [:create, :destroy]

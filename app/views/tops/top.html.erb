@@ -10,16 +10,62 @@
 	        			<%= attachment_image_tag  catalog, :after_front_image, :fill, 230, 308, format: 'jpeg' %>
 	        		</div>
 	        		<div class="btn-group like" role="group">
-                        <div class="favorite-buttons">
-                          <%= render 'catalogs/favorite', catalogs: catalog, favorite_count: catalog.favorites.count %>
-                        </div>
-                        <div class="like-buttons">
-                          <%= render 'catalogs/like', catalogs: catalog, like_count: catalog.likes.count %>
-                        </div>
+                        <% if user_signed_in? %>
+                            <% if catalog.favorited_by?(current_user) %>
+                                <%= link_to fav1_catalogs_path(catalog), class: 'fav1 col-md-6', remote: true do %>
+                                    <i class="glyphicon glyphicon-plus-sign favorite-color" id="favorite-of-<%= catalog.id %>" aria-hidden="true"></i>
+                                    <span class="favorite-of-<%= catalog.id %>" id="favorite-of-<%= catalog.id %>">
+                                      <%= catalog.favorites.count %>
+                                    </span>
+                                <% end %>
+                            <% else %>
+                                <%= link_to fav1_catalogs_path(catalog), class: 'fav1 col-md-6', remote: true do %>
+                                    <i class="glyphicon glyphicon-plus-sign" id="favorite-of-<%= catalog.id %>" aria-hidden="true"></i>
+                                    <span class="favorite-of-<%= catalog.id %>" id="favorite-of-<%= catalog.id %>">
+                                      <%= catalog.favorites.count %>
+                                    </span>
+                                <% end %>
+                            <% end %>
+                        <% else %>
+                          <i class="glyphicon glyphicon-plus-sign" aria-hidden="true"></i>
+                            <span>
+                              <%= catalog.favorites.count %>
+                            </span>
+                        <% end %>
+                        <% if user_signed_in? %>
+                            <% if catalog.liked_by?(current_user) %>
+                                <%= link_to fav2_catalogs_path(catalog), class: 'fav2 col-md-6', remote: true do %>
+                                    <i class="glyphicon glyphicon-heart favorite-color like-icon-<%= catalog.id %>" id="like-of-<%= catalog.id %> " aria-hidden="true"></i>
+                                    <span class="like-of-<%= catalog.id %>" id="like-of-<%= catalog.id %>">
+                                      <%= catalog.likes.count %>
+                                    </span>
+                                <% end %>
+                            <% else %>
+                                <%= link_to fav2_catalogs_path(catalog), class: 'fav2 col-md-6', remote: true do %>
+                                    <i class="glyphicon glyphicon-heart-empty like-icon-<%= catalog.id %>" id="like-of-<%= catalog.id %>" aria-hidden="true"></i>
+                                    <span class="like-of-<%= catalog.id %>" id="like-of-<%= catalog.id %>">
+                                      <%= catalog.likes.count %>
+                                    </span>
+                                <% end %>
+                            <% end %>
+                        <% else %>
+                          <i class="glyphicon glyphicon-heart-empty" aria-hidden="true"></i>
+                            <span>
+                              <%= catalog.likes.count %>
+                            </span>
+                        <% end %>
 	        		</div>
 	        		<div class="user">
-	        			<%= fa_icon("user-circle lg")%>
-           			    <%= current_user.user_key %>
+                        <div class='col-md-3'>
+                            <% if current_user.profile_image.present? %>
+                                <%= attachment_image_tag current_user, :profile_image, :fill, 40, 40, format: 'jpeg' %>
+                            <% else %>
+                                <%= image_tag "no_image.jpg",class: "img-circle", size: "40x40" %>
+                            <% end %>
+                        </div>
+                        <div>
+           			        <%= current_user.user_key %>
+                        </div>
 	        		</div>
 	        	</div>
 	        <% end %>
@@ -93,5 +139,3 @@
     </div>
 </div>
 <%= link_to "投稿ページへ", new_catalog_path %>
-
-

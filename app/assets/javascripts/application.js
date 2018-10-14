@@ -16,3 +16,30 @@
   //= require jquery
   //= require bootstrap-sprockets
 //= require_tree .
+
+$(function() {
+    $(document).on("ajax:success", ".fav1", function(e) {
+        if ($('#favorite-of-' + e.detail[0]).hasClass('favorite-color')) {
+            $('#favorite-of-' + e.detail[0]).removeClass('favorite-color');
+        } else {
+            $('#favorite-of-' + e.detail[0]).addClass('favorite-color');
+        }
+        $('.favorite-of-'+ e.detail[0]).html(e.detail[0][1]);
+    })
+})
+
+$(function() {
+    $(document).on("ajax:success", ".fav2", function(e) {
+        if ($('#like-of-' + e.detail[0]).hasClass('favorite-color')) {
+            $('#like-of-' + e.detail[0]).removeClass('favorite-color');
+        } else {
+            $('#like-of-' + e.detail[0]).addClass('favorite-color');
+        }
+        if ($('.like-icon-' + e.detail[0]).hasClass('glyphicon glyphicon-heart')) {
+            $('.like-icon-' + e.detail[0]).removeClass('glyphicon glyphicon-heart').addClass('glyphicon glyphicon-heart-empty');
+        } else {
+            $('.like-icon-' + e.detail[0]).removeClass('glyphicon glyphicon-heart-empty').addClass('glyphicon glyphicon-heart');
+        }
+        $('.like-of-'+ e.detail[0]).html(e.detail[0][1]);
+    })
+})

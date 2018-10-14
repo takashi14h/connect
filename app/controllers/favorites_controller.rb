@@ -13,5 +13,4 @@ class FavoritesController < ApplicationController
     @catalogs = Catalog.find(params[:catalog_id])
     @favorite_count = @catalogs.favorites.count
   end
-
 end
