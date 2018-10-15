@@ -24,6 +24,7 @@
 
  .navbar{
  	background-color: #ffffff;
+ 	margin-bottom: 2px;
  }
 
  .navbar-shadow{
@@ -108,7 +109,27 @@ li {
 	border: solid 1px #C0C0C0;
 }
 
+.nav li{
+	text-align:center;
+	font-size: 20px;
+}
 
+#navbarEexample1{
+	width: 540px;
+	margin-left: 500px;
+}
+
+.follow{
+	font-size: 1px;
+	color: #ffffff;
+	background-color: #1e78ad;
+	border: 0px !important;
+	padding: 3px 4px !important;
+}
+
+.user-key{
+	font-size: 1px;
+}
 
 
 

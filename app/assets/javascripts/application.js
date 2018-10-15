@@ -42,4 +42,12 @@ $(function() {
         }
         $('.like-of-'+ e.detail[0]).html(e.detail[0][1]);
     })
+
+
+        $(document).on("ajax:success", ".follow", function(e) {
+        var id = e.target.attributes[1].value;
+        $('.user-'+ id).html(e.detail[2]["response"]);
 })
+})
+
+
