@@ -1,0 +1,32 @@
+<div class="user-label">
+        <div class='mypage-image col-md-5'>
+            <% if user.profile_image.present? %>
+                <%= attachment_image_tag user, :profile_image, :fill, 148, 148, format: 'jpeg' %>
+            <% else %>
+                <%= image_tag "no_image.jpg",class: "img-circle", size: "148x148" %>
+            <% end %>
+        </div>
+        <div class="mypage-user-key col-md-4">
+                <%= user.user_key %>
+        </div>
+        <div class="user-<%= user.id %> col-md-3">
+            <% if current_user == user %>
+            <% else %>
+                <%= render "relationships/user", user: user %>
+            <% end %>
+        </div>
+    </div>
+</div>
+
+<nav class="navbar navbar-default mypage-nav">
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarEexample1">
+            <ul class="nav navbar-nav">
+                <li><%= link_to "投稿", users_toukou_path(user.id) %></li>
+                <li><%= link_to "お気に入り", users_okini_path(user.id) %></li>
+                <li><a href="#">フォロワー</a></li>
+                <li><a href="#">フォロー</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>

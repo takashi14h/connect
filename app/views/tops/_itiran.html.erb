@@ -1,0 +1,146 @@
+        <div class="col-lg-9 flex">
+        	<% catalogs.each do |catalog| %>
+            	<div class="box">
+            		<div class="image">
+            			<%= attachment_image_tag  catalog, :after_front_image, :fill, 230, 308, format: 'jpeg' %>
+            		</div>
+            		<div class="btn-group like" role="group">
+                        <% if user_signed_in? && current_user != catalog.user %>
+                            <% if catalog.favorited_by?(current_user) %>
+                                <%= link_to fav1_catalogs_path(catalog), class: 'fav1 col-md-6', remote: true do %>
+                                    <i class="glyphicon glyphicon-plus-sign favorite-color favorite-<%= catalog.id %>" aria-hidden="true"></i>
+                                    <span class="favorite-of-<%= catalog.id %> favorite-color favorite-<%= catalog.id %>">
+                                      <%= catalog.favorites.count %>
+                                    </span>
+                                <% end %>
+                            <% else %>
+                                <%= link_to fav1_catalogs_path(catalog), class: 'fav1 col-md-6', remote: true do %>
+                                    <i class="glyphicon glyphicon-plus-sign favorite-<%= catalog.id %>" aria-hidden="true"></i>
+                                    <span class="favorite-of-<%= catalog.id %> favorite-<%= catalog.id %>">
+                                      <%= catalog.favorites.count %>
+                                    </span>
+                                <% end %>
+                            <% end %>
+                        <% else %>
+                            <div class="col-md-6 no-icon">
+                                <i class="glyphicon glyphicon-plus-sign" aria-hidden="true"></i>
+                                <span>
+                                  <%= catalog.favorites.count %>
+                                </span>
+                            </div>
+                        <% end %>
+                        <% if user_signed_in? && current_user != catalog.user %>
+                            <% if catalog.liked_by?(current_user) %>
+                                <%= link_to fav2_catalogs_path(catalog), class: 'fav2 col-md-6', remote: true do %>
+                                    <i class="glyphicon glyphicon-heart favorite-color like-icon-<%= catalog.id %> like-<%= catalog.id %>" aria-hidden="true"></i>
+                                    <span class="like-of-<%= catalog.id %> favorite-color like-<%= catalog.id %>" >
+                                      <%= catalog.likes.count %>
+                                    </span>
+                                <% end %>
+                            <% else %>
+                                <%= link_to fav2_catalogs_path(catalog), class: 'fav2 col-md-6', remote: true do %>
+                                    <i class="glyphicon glyphicon-heart-empty like-icon-<%= catalog.id %> like-<%= catalog.id %>" aria-hidden="true"></i>
+                                    <span class="like-of-<%= catalog.id %> like-<%= catalog.id %>" >
+                                      <%= catalog.likes.count %>
+                                    </span>
+                                <% end %>
+                            <% end %>
+                        <% else %>
+                            <div class="col-md-6 no-icon">
+                                <i class="glyphicon glyphicon-heart-empty" aria-hidden="true"></i>
+                                <span>
+                                  <%= catalog.likes.count %>
+                                </span>
+                            </div>
+                        <% end %>
+            		</div>
+            		<div class="user">
+                        <div class='col-md-3'>
+                            <% if catalog.user.profile_image.present? %>
+                                <%= link_to user_path(catalog.user.id) do %>
+                                    <%= attachment_image_tag catalog.user, :profile_image, :fill, 40, 40, format: 'jpeg' %>
+                                <% end %>
+                            <% else %>
+                                <%= link_to user_path(catalog.user.id) do %>
+                                    <%= image_tag "no_image.jpg",class: "img-circle", size: "40x40" %>
+                                <% end %>
+                            <% end %>
+                        </div>
+                        <div class="user-key col-md-4">
+           			        <%= catalog.user.user_key %>
+                        </div>
+                        <div class="user-<%= catalog.user.id %> col-md-5">
+                            <% if current_user == catalog.user %>
+                            <% else %>
+                                <%= render "relationships/user", user: catalog.user %>
+                            <% end %>
+                        </div>
+            		</div>
+            	</div>
+            <% end %>
+        	<nav>
+        	<%= paginate @catalogs, class:"pagenate" %>
+        	</nav>
+        	<div class="box">
+        		<div class="image">
+        		</div>
+        		<div class="like">
+        		</div>
+        		<div class="user">
+        		</div>
+        	</div>
+
+        	<div class="box">
+        		<div class="image">
+        		</div>
+        		<div class="like">
+        		</div>
+        		<div class="user">
+        		</div>
+        	</div>
+
+        	<div class="box">
+        		<div class="image">
+        		</div>
+        		<div class="like">
+        		</div>
+        		<div class="user">
+        		</div>
+        	</div>
+
+        	<div class="box">
+        		<div class="image">
+        		</div>
+        		<div class="like">
+        		</div>
+        		<div class="user">
+        		</div>
+        	</div>
+
+        	<div class="box">
+        		<div class="image">
+        		</div>
+        		<div class="like">
+        		</div>
+        		<div class="user">
+        		</div>
+        	</div>
+
+        	<div class="box">
+        		<div class="image">
+        		</div>
+        		<div class="like">
+        		</div>
+        		<div class="user">
+        		</div>
+        	</div>
+
+        	<div class="box">
+        		<div class="image">
+        		</div>
+        		<div class="like">
+        		</div>
+        		<div class="user">
+        		</div>
+        	</div>
+        </div>
