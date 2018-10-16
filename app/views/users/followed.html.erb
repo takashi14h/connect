@@ -1,0 +1,26 @@
+<%= render "users/header", user: @user %>
+
+<div class="container index">
+    <div class="flex follow-box">
+    	<% @followed.each do |followed| %>
+			<div class="follow-label">
+			    <div class='mypage-image col-md-5'>
+			        <% if followed.profile_image.present? %>
+			            <%= attachment_image_tag followed, :profile_image, :fill, 70, 70, format: 'jpeg' %>
+			        <% else %>
+			            <%= image_tag "no_image.jpg",class: "img-circle", size: "70x70" %>
+			        <% end %>
+			    </div>
+			    <div class="follow-user-key col-md-4">
+			            <%= followed.user_key %>
+			    </div>
+			    <div class="user-<%= followed.id %> col-md-3">
+			        <% if current_user == followed %>
+			        <% else %>
+			            <%= render "relationships/user", user: followed %>
+			        <% end %>
+			    </div>
+			</div>
+		<% end %>
+	</div>
+</div>
