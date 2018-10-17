@@ -1,9 +1,13 @@
 <div class="user-label">
     <div class='mypage-image col-md-5'>
         <% if user.profile_image.present? %>
-            <%= attachment_image_tag user, :profile_image, :fill, 148, 148, format: 'jpeg' %>
+            <%= link_to users_toukou_path(user.id) do %>
+                <%= attachment_image_tag user, :profile_image, :fill, 148, 148, format: 'jpeg' %>
+            <% end %>
         <% else %>
-            <%= image_tag "no_image.jpg",class: "img-circle", size: "148x148" %>
+            <%= link_to users_toukou_path(user.id) do %>
+                <%= image_tag "no_image.jpg",class: "img-circle", size: "148x148" %>
+            <% end %>
         <% end %>
     </div>
     <div class="mypage-user-key col-md-4">

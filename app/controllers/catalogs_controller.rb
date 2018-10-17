@@ -8,6 +8,8 @@ class CatalogsController < ApplicationController
   end
 
   def show
+    @catalog = Catalog.find(params[:id])
+    @user = @catalog.user
   end
 
   def create

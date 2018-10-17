@@ -2,7 +2,9 @@
         	<% catalogs.each do |catalog| %>
             	<div class="box">
             		<div class="image">
-            			<%= attachment_image_tag  catalog, :after_front_image, :fill, 230, 308, format: 'jpeg' %>
+                        <%= link_to catalog_path(catalog.id) do%>
+            		        <%= attachment_image_tag  catalog, :after_front_image, :fill, 230, 308, format: 'jpeg' %>
+                        <% end %>
             		</div>
             		<div class="btn-group like" role="group">
                         <% if user_signed_in? && current_user != catalog.user %>

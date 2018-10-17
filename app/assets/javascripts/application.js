@@ -13,8 +13,8 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-  //= require jquery
-  //= require bootstrap-sprockets
+//= require jquery
+//= require bootstrap-sprockets
 //= require_tree .
 
 $(function() {
@@ -26,7 +26,7 @@ $(function() {
         }
         $('.favorite-of-'+ e.detail[0]).html(e.detail[0][1]);
     })
-})
+});
 
 $(function() {
     $(document).on("ajax:success", ".fav2", function(e) {
@@ -41,13 +41,18 @@ $(function() {
         } else {
             $('.like-icon-' + e.detail[0]).removeClass('glyphicon glyphicon-heart-empty').addClass('glyphicon glyphicon-heart');
         }
-    })
+    });
 
 
         $(document).on("ajax:success", ".follow", function(e) {
         var id = e.target.attributes[1].value;
         $('.user-'+ id).html(e.detail[2]["response"]);
-})
-})
+});
+});
+
+
+
+
+
 
 

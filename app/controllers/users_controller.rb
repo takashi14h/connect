@@ -21,8 +21,8 @@ class UsersController < ApplicationController
   def followed
     @user = User.find(params[:id])
     relationship = Relationship.where(followed_id: @user.id)
-    b = relationship.pluck(:follower_id)
-    @followed = User.where(id: b).page(params[:page]).reverse_order.per(30)
+    c = relationship.pluck(:follower_id)
+    @followed = User.where(id: c).page(params[:page]).reverse_order.per(30)
   end
 
   def show
