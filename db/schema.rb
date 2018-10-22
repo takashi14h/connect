@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 2018_10_18_081440) do
     t.string "price"
     t.string "length"
     t.string "color"
+    t.string "goods"
     t.text "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -87,7 +88,7 @@ ActiveRecord::Schema.define(version: 2018_10_18_081440) do
     t.integer "age"
     t.string "profile_image_id"
     t.string "address"
-    t.boolean "sex"
+    t.string "sex"
     t.string "face"
     t.string "hair_shitu"
     t.string "hair_ryou"

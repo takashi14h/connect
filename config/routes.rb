@@ -28,5 +28,8 @@ Rails.application.routes.draw do
     resource :favorites, only: [:index, :create, :destroy]
     resource :likes, only: [:create, :destroy]
   end
+
+
+  get 'lab' => 'tops#lab'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

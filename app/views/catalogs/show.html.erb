@@ -146,6 +146,13 @@
 					</tr>
                 <% else %>
                 <% end %>
+                <% if @catalog.goods.present? %>
+					<tr>
+						<td>スタイリング材</td>
+						<td><%= @catalog.goods%></td>
+					</tr>
+                <% else %>
+                <% end %>
 			</table>
             <% if @catalog.comment.present? %>
 				<h2>コメント</h2>

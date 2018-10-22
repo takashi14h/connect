@@ -28,9 +28,7 @@ $(function() {
         }
         $('.favorite-of-'+ e.detail[0]).html(e.detail[0][1]);
     })
-});
 
-$(function() {
     $(document).on("ajax:success", ".fav2", function(e) {
         $('.like-of-'+ e.detail[0]).html(e.detail[0][1]);
         if ($('.like-' + e.detail[0]).hasClass('favorite-color')) {
@@ -50,6 +48,41 @@ $(function() {
         var id = e.target.attributes[1].value;
         $('.user-'+ id).html(e.detail[2]["response"]);
 　　　})
+
+
+    $(document).on('click', '.sex-label', function() {
+        var c = '';
+        $('.ALL').removeClass('sex-label-color');
+        $('.MEN').removeClass('sex-label-color');
+        $('.WOMEN').removeClass('sex-label-color');
+        $('.KIDS').removeClass('sex-label-color');
+        if ($(this).hasClass('ALL')) {
+            c = "ALL";
+            $('.ALL').addClass('sex-label-color');
+        } else if ($(this).hasClass('MEN')){
+            c = "MEN";
+            $('.MEN').addClass('sex-label-color');
+        } else if ($(this).hasClass('WOMEN')){
+            c = "WOMEN";
+            $('.WOMEN').addClass('sex-label-color');
+        } else {
+            c = "KIDS";
+            $('.KIDS').addClass('sex-label-color');
+        }
+        $.ajax({
+            url: '/lab',
+            type: 'get',
+            async: true,
+            data: {"sexlab": c},
+            beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))}
+        })
+        .done(function(f) {
+            // console.log(f)
+            $('.label-wrapper').html(f);
+        })
+        .fail(function() {
+        })
+    })
 });
 
 

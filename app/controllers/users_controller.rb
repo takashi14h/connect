@@ -41,11 +41,11 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      flash[:notice] = "変更が保存されました"
+      flash[:notices] = "変更が保存されました"
       redirect_to edit_user_path(@user.id)
     else
-    puts @user.errors.full_messages
-      flash[:notice] = "変更が保存されませんでした"
+    # puts @user.errors.full_messages
+      flash[:notices] = "変更が保存されませんでした"
       redirect_to edit_user_path(@user.id)
     end
   end

@@ -17,6 +17,7 @@ class CreateCatalogs < ActiveRecord::Migration[5.2]
       t.string :price
       t.string :length
       t.string :color
+      t.string :goods
       t.text :comment
 
       t.timestamps

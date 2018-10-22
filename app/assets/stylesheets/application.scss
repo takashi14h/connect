@@ -210,3 +210,19 @@ li {
 .comment{
 	padding: 20px;
 }
+
+.sex-label{
+	margin-left: 25px;
+	line-height: 50px;
+	color: #C0C0C0;
+}
+
+.sex-label:hover {
+    border-bottom: solid 2px black;
+    text-decoration: none;
+}
+
+.sex-label-color{
+	color: black;
+	border-bottom: solid 2px black;
+}

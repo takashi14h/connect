@@ -59,6 +59,6 @@ class CatalogsController < ApplicationController
   private
 
   def catalog_params
-    params.require(:catalog).permit(:user_id, :before_front_image, :before_side_image, :before_back_image, :order_front_image, :order_side_image, :order_back_image, :after_front_image, :after_side_image, :after_back_image, :salon, :stylist, :menu, :price, :length, :color, :comment)
+    params.require(:catalog).permit(:user_id, :before_front_image, :before_side_image, :before_back_image, :order_front_image, :order_side_image, :order_back_image, :after_front_image, :after_side_image, :after_back_image, :salon, :stylist, :menu, :price, :length, :color, :goods, :comment)
   end
 end
