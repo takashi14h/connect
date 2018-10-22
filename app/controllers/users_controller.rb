@@ -33,11 +33,33 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = User.find(params[:id])
+    @f_middle = @user.f_middles.build
+    @fashions = Fashion.all
   end
 
   def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      flash[:notice] = "変更が保存されました"
+      redirect_to edit_user_path(@user.id)
+    else
+    puts @user.errors.full_messages
+      flash[:notice] = "変更が保存されませんでした"
+      redirect_to edit_user_path(@user.id)
+    end
   end
 
   def destroy
+  end
+
+    private
+
+  def user_params
+    params[:user][:f_middles_attributes].delete_if{|k, v|
+  v["fashion_id"] == ''
+}
+puts params[:user][:f_middles_attributes]
+    params.require(:user).permit(:user_name, :user_key, :age, :profile_image, :address, :sex, :face, :hair_shitu, :hair_ryou, :hair_futosa, :hair_kuse, :introduce, f_middles_attributes: [:id, :user_id, :fashion_id, :_destroy])
   end
 end

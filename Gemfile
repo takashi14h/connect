@@ -67,3 +67,6 @@ gem 'bootstrap-sass'
 gem 'jquery-rails'
 gem 'font-awesome-rails'
 gem 'kaminari'
+gem 'seed-fu'
+gem 'cocoon'
+

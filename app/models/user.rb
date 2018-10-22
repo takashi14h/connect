@@ -9,10 +9,12 @@ class User < ApplicationRecord
   has_many :catalogs, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :f_middles, dependent: :destroy, inverse_of: :user
   has_many :relationships, foreign_key: "follower_id", dependent: :destroy
   has_many :followed_users, through: :relationships, source: :followed
   has_many :reverse_relationships, foreign_key: "followed_id", class_name: "Relationship", dependent: :destroy
   has_many :followers, through: :reverse_relationships, source: :follower
+  accepts_nested_attributes_for :f_middles, allow_destroy: true
 
   validates :user_key, length: { maximum: 20 }
   validates :user_key, presence: true

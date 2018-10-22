@@ -1,4 +1,18 @@
 <%= render "users/header", user: @user %>
+<nav class="navbar navbar-default mypage-nav">
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li><%= link_to "投稿", users_toukou_path(@user.id),class: "toukou_nav" %></li>
+                <li><%= link_to "お気に入り", users_okini_path(@user.id),class: "okini_nav" %></li>
+            </ul>
+            <ul class="nav navbar-nav float-nav ">
+                <li><%= link_to "フォロワー", users_followed_path(@user.id),class: "followed_nav nav_color" %></li>
+                <li><%= link_to "フォロー", users_follower_path(@user.id),class: "follower_nav" %></li>
+            </ul>
+        </div>
+    </div>
+</nav>
 
 <div class="container index">
     <div class="flex follow-box">
@@ -6,9 +20,13 @@
 			<div class="follow-label">
 			    <div class='mypage-image col-md-5'>
 			        <% if followed.profile_image.present? %>
-			            <%= attachment_image_tag followed, :profile_image, :fill, 70, 70, format: 'jpeg' %>
+			            <%= link_to users_toukou_path(followed.id) do %>
+			                <%= attachment_image_tag followed, :profile_image, format: 'jpeg',class: "img-circle follow-size image-hover" %>
+			            <% end %>
 			        <% else %>
-			            <%= image_tag "no_image.jpg",class: "img-circle", size: "70x70" %>
+			            <%= link_to users_toukou_path(followed.id) do %>
+			                <%= image_tag "no_image.jpg",class: "img-circle", size: "70x70" %>
+			            <% end %>
 			        <% end %>
 			    </div>
 			    <div class="follow-user-key col-md-4">

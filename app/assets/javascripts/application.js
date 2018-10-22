@@ -15,7 +15,9 @@
 //= require turbolinks
 //= require jquery
 //= require bootstrap-sprockets
+//= require cocoon
 //= require_tree .
+
 
 $(function() {
     $(document).on("ajax:success", ".fav1", function(e) {
@@ -41,15 +43,44 @@ $(function() {
         } else {
             $('.like-icon-' + e.detail[0]).removeClass('glyphicon glyphicon-heart-empty').addClass('glyphicon glyphicon-heart');
         }
-    });
+    })
 
 
-        $(document).on("ajax:success", ".follow", function(e) {
+     $(document).on("ajax:success", ".follow", function(e) {
         var id = e.target.attributes[1].value;
         $('.user-'+ id).html(e.detail[2]["response"]);
-});
+　　　})
 });
 
+
+
+
+// $(function () {
+//     $(window).bind("load", function(){
+//         var url   = location.href;
+//         if (url.match("/toukou")) {
+//             alert(url)
+//             $('.toukou_nav').removeClass('toukou_color');
+//             $('.toukou_nav').addClass('toukou_color');
+//         }
+//         //     }
+//         // if (url.match("/okini/")) {
+//         //         $('.okini_nav').addClass('okini_color');
+//         //     } else {
+//         //         $('.okini_nav').removeClass('okini_color');
+//         //     }
+//         // if (url.match("/followed")) {
+//         //         $('.followed_nav').addClass('followed_color');
+//         //     } else {
+//         //         $('.followed_nav').removeClass('followed_color');
+//         //     }
+//         // if (url.match("/follower")) {
+//         //         $('.follower_nav').addClass('follower_color');
+//         //     } else {
+//         //         $('.follower_nav').removeClass('follower_color');
+//         //     }
+//     });
+// });
 
 
 

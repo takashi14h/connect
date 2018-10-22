@@ -39,7 +39,6 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :profile_image_id
       t.string :address
       t.boolean :sex
-      t.string :fashion
       t.string :face
       t.string :hair_shitu
       t.string :hair_ryou

@@ -3,7 +3,7 @@
             	<div class="box">
             		<div class="image">
                         <%= link_to catalog_path(catalog.id) do%>
-            		        <%= attachment_image_tag  catalog, :after_front_image, :fill, 230, 308, format: 'jpeg' %>
+            		        <%= attachment_image_tag  catalog, :after_front_image, :fill, 230, 308, format: 'jpeg', class: "image-hover" %>
                         <% end %>
             		</div>
             		<div class="btn-group like" role="group">
@@ -60,7 +60,7 @@
                         <div class='col-md-3'>
                             <% if catalog.user.profile_image.present? %>
                                 <%= link_to users_toukou_path(catalog.user.id) do %>
-                                    <%= attachment_image_tag catalog.user, :profile_image, :fill, 40, 40, format: 'jpeg' %>
+                                    <%= attachment_image_tag catalog.user, :profile_image, format: 'jpeg', class: "img-circle itiran-image-size image-hover" %>
                                 <% end %>
                             <% else %>
                                 <%= link_to users_toukou_path(catalog.user.id) do %>

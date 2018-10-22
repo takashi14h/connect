@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_15_044517) do
+ActiveRecord::Schema.define(version: 2018_10_18_081440) do
 
   create_table "catalogs", force: :cascade do |t|
     t.integer "user_id"
@@ -30,6 +30,19 @@ ActiveRecord::Schema.define(version: 2018_10_15_044517) do
     t.string "length"
     t.string "color"
     t.text "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "f_middles", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "fashion_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "fashions", force: :cascade do |t|
+    t.string "fashion_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -75,7 +88,6 @@ ActiveRecord::Schema.define(version: 2018_10_15_044517) do
     t.string "profile_image_id"
     t.string "address"
     t.boolean "sex"
-    t.string "fashion"
     t.string "face"
     t.string "hair_shitu"
     t.string "hair_ryou"
