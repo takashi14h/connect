@@ -1,1 +1,23 @@
-
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+  	<h3><%= image_tag "王冠.png" ,alt: "" ,class: "u_icon" %> ユーザーランキング</h3>
+    <div class="collapse navbar-collapse" id="navbarEexample1">
+      <ul class="nav navbar-nav">
+        <li><span class="ALL user-sex-label sex-label-color">ALL</span></li>
+        <li><span class="MEN user-sex-label">MEN</span></li>
+        <li><span class="WOMEN user-sex-label">WOMEN</span></li>
+        <li><span class="KIDS user-sex-label">KIDS</span></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3">
+          <%= render "tops/sidebar", users: @users %>
+        </div>
+        <div class="ranking-wrapper">
+        	<%= render "users/ranking", users: @users %>
+    	</div>
+    </div>
+</div>

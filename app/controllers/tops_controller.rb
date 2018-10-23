@@ -1,6 +1,8 @@
 class TopsController < ApplicationController
   def top
   	@catalogs = Catalog.page(params[:page]).reverse_order.per(15)
+    a = Relationship.group(:followed_id).order('count(follower_id) desc').limit(5).pluck(:followed_id)
+    @users = User.where(id: a)
   end
 
   def lab
@@ -15,3 +17,4 @@ class TopsController < ApplicationController
   	render partial: 'itiran', locals: {catalogs: @catalogs}
   end
 end
+

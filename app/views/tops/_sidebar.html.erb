@@ -1,0 +1,76 @@
+<div class="sidebar">
+	<div class="catalog-sidebar">
+		<h4><%= image_tag "カメラ.png" ,alt: "" ,class: "icon" %>  探す</h4>
+		<table class="sidebar_table">
+			<tbody>
+				<tr>
+					<td><%= image_tag "くし.png" ,alt: "" ,class: "icon" %>  スタイルで探す</td>
+				</tr>
+				<tr>
+					<td><%= image_tag "服装.png" ,alt: "" ,class: "icon" %>  服装で探す</td>
+				</tr>
+				<tr>
+					<td><%= image_tag "年齢.png" ,alt: "" ,class: "icon" %>  年齢で探す</td>
+				</tr>
+				<tr>
+					<td><%= image_tag "地域.png" ,alt: "" ,class: "icon" %>  地域で探す</td>
+				</tr>
+				<tr>
+					<td><%= image_tag "値段.png" ,alt: "" ,class: "icon" %>  値段で探す</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="user-sidebar">
+		<h4><%= image_tag "人物.png" ,alt: "" ,class: "icon" %>  ユーザー</h4>
+		<table class="sidebar_table">
+			<tbody>
+		        <% i = 0 %>
+		        <% users.each do |user| %>
+			        <% break if i == 5 %>
+						<tr>
+							<td>
+								<div>
+									<% if i == 0 %>
+										<div class="rank"><%= image_tag "1位.png" ,alt: "" ,class: "icon" %></div>
+									<% elsif i == 1 %>
+										<div class="rank"><%= image_tag "2位.png" ,alt: "" ,class: "icon" %></div>
+									<% elsif i == 2 %>
+										<div class="rank"><%= image_tag "3位.png" ,alt: "" ,class: "icon" %></div>
+									<% elsif i == 3 %>
+										<div class="rank"><%= image_tag "4位.png" ,alt: "" ,class: "icon" %></div>
+									<% else %>
+										<div class="rank"><%= image_tag "5位.png" ,alt: "" ,class: "icon" %></div>
+									<% end %>
+									<div class="rank">
+				                        <% if user.profile_image.present? %>
+				                            <%= link_to users_toukou_path(user.id) do %>
+				                                <%= attachment_image_tag user, :profile_image, format: 'jpeg', class: "img-circle itiran-image-size image-hover" %>
+				                            <% end %>
+				                        <% else %>
+				                            <%= link_to users_toukou_path(user.id) do %>
+				                                <%= image_tag "no_image.jpg",class: "img-circle", size: "40x40" %>
+				                            <% end %>
+				                        <% end %>
+			                    	</div>
+			                    	<div class="rank aaa">
+			           			        <%= user.user_key %><br>
+			           			        <%= image_tag "人物.png" ,alt: "" ,class: "f-icon" %>
+			           			        <%= Relationship.where(followed_id: user).count %>
+			           			    </div>
+			           			</div>
+							</td>
+						</tr>
+        			<% i+= 1 %>
+      			<% end %>
+			</tbody>
+		</table>
+		<%= link_to "もっと見る", users_path, class: "btn btn-default user-btn" %>
+	</div>
+</div>
+
+
+
+
+
+

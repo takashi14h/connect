@@ -5,6 +5,7 @@ class CatalogsController < ApplicationController
   end
 
   def index
+
   end
 
   def show
@@ -16,7 +17,7 @@ class CatalogsController < ApplicationController
     @catalog = Catalog.new(catalog_params)
     @catalog.user_id = current_user.id
     @catalog.save
-    redirect_to catalogs_path
+    redirect_to users_toukou_path(current_user.id)
   end
 
   def edit

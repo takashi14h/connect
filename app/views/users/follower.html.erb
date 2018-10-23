@@ -3,12 +3,32 @@
     <div class="container-fluid">
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li><%= link_to "投稿", users_toukou_path(@user.id),class: "toukou_nav" %></li>
-                <li><%= link_to "お気に入り", users_okini_path(@user.id),class: "okini_nav" %></li>
+                <li>
+                    <%= link_to users_toukou_path(@user.id),class: "user_nav" do%>
+                        <%= @user.catalogs.count %>
+                        <p>投稿</p>
+                    <% end %>
+                </li>
+                <li>
+                    <%= link_to users_okini_path(@user.id),class: "user_nav" do%>
+                        <%= Favorite.where(user_id: @user).count %>
+                        <p>お気に入り</p>
+                    <% end %>
+                </li>
             </ul>
             <ul class="nav navbar-nav float-nav ">
-                <li><%= link_to "フォロワー", users_followed_path(@user.id),class: "followed_nav" %></li>
-                <li><%= link_to "フォロー", users_follower_path(@user.id),class: "follower_nav nav_color" %></li>
+                <li>
+                    <%= link_to users_followed_path(@user.id),class: "user_nav" do%>
+                        <%= Relationship.where(followed_id: @user).count %>
+                        <p>フォロワー</p>
+                    <% end %>
+                </li>
+                <li>
+                    <%= link_to users_follower_path(@user.id),class: "user_nav nav_color" do%>
+                        <%= Relationship.where(follower_id: @user).count %>
+                        <p class="underline">フォロー</p>
+                    <% end %>
+                </li>
             </ul>
         </div>
     </div>

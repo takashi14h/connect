@@ -29,7 +29,9 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def create
+  def index
+    a = Relationship.group(:followed_id).order('count(follower_id) desc').pluck(:followed_id)
+    @users = User.where(id: a)
   end
 
   def edit
@@ -51,6 +53,17 @@ class UsersController < ApplicationController
   end
 
   def destroy
+  end
+
+  def ulab
+    puts params[:ulab]
+      a = Relationship.group(:followed_id).order('count(follower_id) desc').pluck(:followed_id)
+    if params[:ulab] == 'ALL'
+      @users = User.where(id: a).page(params[:page]).reverse_order.per(30)
+    else
+      @users = User.where(id: a).where(sex: params[:ulab]).page(params[:page]).reverse_order.per(30)
+    end
+    render partial: 'ranking', locals: {users: @users}
   end
 
     private

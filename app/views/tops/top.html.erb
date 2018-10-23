@@ -2,7 +2,7 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-3">
-          <h1>サイドバー</h1>
+          <%= render "tops/sidebar", users: @users %>
         </div>
         <div class="label-wrapper">
         	<%= render "tops/itiran", catalogs: @catalogs %>

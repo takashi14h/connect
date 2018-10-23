@@ -1,0 +1,28 @@
+			<div class="container col-lg-9 index">
+			    <div class="flex follow-box">
+			    	<% users.each do |follower| %>
+						<div class="follow-label">
+						    <div class='mypage-image col-md-5'>
+						        <% if follower.profile_image.present? %>
+						            <%= link_to users_toukou_path(follower.id) do %>
+						                <%= attachment_image_tag follower, :profile_image, format: 'jpeg',class: "img-circle follow-size image-hover" %>
+						            <% end %>
+						        <% else %>
+						            <%= link_to users_toukou_path(follower.id) do %>
+						                <%= image_tag "no_image.jpg",class: "img-circle", size: "70x70" %>
+						            <% end %>
+						        <% end %>
+						    </div>
+						    <div class="follow-user-key col-md-4">
+						            <%= follower.user_key %>
+						    </div>
+						    <div class="user-<%= follower.id %> col-md-3">
+						        <% if current_user == follower %>
+						        <% else %>
+						            <%= render "relationships/user", user: follower %>
+						        <% end %>
+						    </div>
+						</div>
+					<% end %>
+				</div>
+			</div>

@@ -83,37 +83,45 @@ $(function() {
         .fail(function() {
         })
     })
+
+    $(document).on('click', '.user-sex-label', function() {
+        var c = '';
+        $('.ALL').removeClass('sex-label-color');
+        $('.MEN').removeClass('sex-label-color');
+        $('.WOMEN').removeClass('sex-label-color');
+        $('.KIDS').removeClass('sex-label-color');
+        if ($(this).hasClass('ALL')) {
+            c = "ALL";
+            $('.ALL').addClass('sex-label-color');
+        } else if ($(this).hasClass('MEN')){
+            c = "MEN";
+            $('.MEN').addClass('sex-label-color');
+        } else if ($(this).hasClass('WOMEN')){
+            c = "WOMEN";
+            $('.WOMEN').addClass('sex-label-color');
+        } else {
+            c = "KIDS";
+            $('.KIDS').addClass('sex-label-color');
+        }
+        $.ajax({
+            url: '/ulab',
+            type: 'get',
+            async: true,
+            data: {"ulab": c},
+            beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))}
+        })
+        .done(function(f) {
+            // console.log(f)
+            $('.ranking-wrapper').html(f);
+        })
+        .fail(function() {
+        })
+    })
 });
 
 
 
 
-// $(function () {
-//     $(window).bind("load", function(){
-//         var url   = location.href;
-//         if (url.match("/toukou")) {
-//             alert(url)
-//             $('.toukou_nav').removeClass('toukou_color');
-//             $('.toukou_nav').addClass('toukou_color');
-//         }
-//         //     }
-//         // if (url.match("/okini/")) {
-//         //         $('.okini_nav').addClass('okini_color');
-//         //     } else {
-//         //         $('.okini_nav').removeClass('okini_color');
-//         //     }
-//         // if (url.match("/followed")) {
-//         //         $('.followed_nav').addClass('followed_color');
-//         //     } else {
-//         //         $('.followed_nav').removeClass('followed_color');
-//         //     }
-//         // if (url.match("/follower")) {
-//         //         $('.follower_nav').addClass('follower_color');
-//         //     } else {
-//         //         $('.follower_nav').removeClass('follower_color');
-//         //     }
-//     });
-// });
 
 
 
