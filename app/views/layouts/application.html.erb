@@ -11,9 +11,17 @@
 
   <body>
     <nav class="navbar navbar-default navbar-shadow navbar-fixed-top">
-      <div class="container-fluid">
         <% if user_signed_in? %>
-          <div class="collapse navbar-collapse navbar-right" id="navbarEexample4">
+        <div class="container-fluid">
+          <div class="search navbar-left search-left">
+            <form action="<%= users_search_path %>" method="get" class="form-inline">
+              <input type="text" id="search__bar" name="s_title" required size="10" placeholder=" ユーザー名" value="<%= request[:s_title] %>">
+                <button  class="search__box" type="submit">
+                    <span class="search__box__txt" ><%= image_tag "search.png", alt:"" %> 検索</span>
+                </button>
+            </form>
+          </div>
+          <div class="collapse navbar-collapse navbar-right"">
             <%= link_to user_path(current_user.id), class: "btn btn-default navbar-btn navbar-color" do %>
               <%= fa_icon("user-circle lg")%>
               <%= current_user.user_key %>
@@ -24,7 +32,7 @@
             <%= link_to "C:connect", root_path, class: "navbar-brand navbar-center2"%>
           </div>
         <% else %>
-          <div class="collapse navbar-collapse navbar-left" id="navbarEexample4">
+          <div class="collapse navbar-collapse navbar-left"">
             <%= link_to new_user_session_path, class: "btn btn-default navbar-btn navbar-color" do %>
               <%= fa_icon("user-circle lg")%> Sign in
             <% end %>
@@ -33,13 +41,21 @@
           <div class="navbar-header">
             <%= link_to "C:connect", root_path, class: "navbar-brand navbar-center1"%>
           </div>
+              <div class="search navbar-right search-right">
+                <form action="<%= users_path %>" method="get" class="form-inline">
+                  <input type="text" id="search__bar" name="s_title" required size="10" placeholder=" ユーザー名" value="<%= request[:s_title] %>">
+                    <button  class="search__box" type="submit">
+                        <span class="search__box__txt" ><%= image_tag "search.png", alt:"" %> 検索</span>
+                    </button>
+                </form>
+              </div>
         <% end %>
       </div>
     </nav>
     <nav class="navbar navbar-default navbar-shadow ">
       <div class="container-fluid">
         <% if user_signed_in? %>
-          <div class="collapse navbar-collapse navbar-right" id="navbarEexample4">
+          <div class="collapse navbar-collapse navbar-right"">
             <%= link_to user_path(current_user.id), class: "btn btn-default navbar-btn navbar-color" do %>
               <%= fa_icon("user-circle lg")%>
               <%= current_user.user_key %>
@@ -50,7 +66,7 @@
             <%= link_to "C:connect", root_path, class: "navbar-brand navbar-center2"%>
           </div>
         <% else %>
-          <div class="collapse navbar-collapse navbar-left" id="navbarEexample4">
+          <div class="collapse navbar-collapse navbar-left"">
             <%= link_to new_user_session_path, class: "btn btn-default navbar-btn navbar-color" do %>
               <%= fa_icon("user-circle lg")%> Sign in
             <% end %>

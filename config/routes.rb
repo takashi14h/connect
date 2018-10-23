@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   get 'users/follower/:id' => 'users#follower', as: "users_follower"
   get 'users/toukou/:id' => 'users#toukou', as: "users_toukou"
   get 'users/okini/:id' => 'users#okini', as: "users_okini"
+  get 'users/search' => 'users#search', as: "users_search"
   resources :users, only: [:index, :show, :create, :edit, :update, :destroy]
   resources :catalogs do
     resource :favorites, only: [:index, :create, :destroy]

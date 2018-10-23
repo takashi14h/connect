@@ -34,6 +34,10 @@ class UsersController < ApplicationController
     @users = User.where(id: a)
   end
 
+  def search
+    @users = User.all.search(s_title: params[:s_title]) if params[:s_title].present?
+  end
+
   def edit
     @user = User.find(params[:id])
     @f_middle = @user.f_middles.build

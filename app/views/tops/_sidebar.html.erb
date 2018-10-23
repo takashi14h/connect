@@ -32,15 +32,15 @@
 							<td>
 								<div>
 									<% if i == 0 %>
-										<div class="rank"><%= image_tag "1位.png" ,alt: "" ,class: "icon" %></div>
+										<div class="rank"><%= image_tag "1位.png" ,alt: "" ,class: "r_icon" %></div>
 									<% elsif i == 1 %>
-										<div class="rank"><%= image_tag "2位.png" ,alt: "" ,class: "icon" %></div>
+										<div class="rank"><%= image_tag "2位.png" ,alt: "" ,class: "r_icon" %></div>
 									<% elsif i == 2 %>
-										<div class="rank"><%= image_tag "3位.png" ,alt: "" ,class: "icon" %></div>
+										<div class="rank"><%= image_tag "3位.png" ,alt: "" ,class: "r_icon" %></div>
 									<% elsif i == 3 %>
-										<div class="rank"><%= image_tag "4位.png" ,alt: "" ,class: "icon" %></div>
+										<div class="rank"><%= image_tag "4位.png" ,alt: "" ,class: "r_icon" %></div>
 									<% else %>
-										<div class="rank"><%= image_tag "5位.png" ,alt: "" ,class: "icon" %></div>
+										<div class="rank"><%= image_tag "5位.png" ,alt: "" ,class: "r_icon" %></div>
 									<% end %>
 									<div class="rank">
 				                        <% if user.profile_image.present? %>
