@@ -1,2 +1,137 @@
-<h1>Catalogs#edit</h1>
-<p>Find me in app/views/catalogs/edit.html.erb</p>
+<div>
+	<% if flash[:alert] %>
+		<div class="flash">
+			<%= flash[:alert] %>
+		</div>
+	<% end %>
+</div>
+<div class="">
+	<%= form_for(@catalog) do |f| %>
+
+		<div class="form-group">
+			<%= f.label :before_front_image, "before前：", class:"col-lg-3 control-label"  %>
+	        <div class="">
+	        	 <%= f.attachment_field :before_front_image %>
+	    	</div>
+	    </div>
+
+		<div class="form-group">
+			<%= f.label :before_side_image, "before横：", class:"col-lg-3 control-label"  %>
+	        <div class="">
+	        	 <%= f.attachment_field :before_side_image %>
+	    	</div>
+	    </div>
+
+		<div class="form-group">
+			<%= f.label :before_back_image, "before後：", class:"col-lg-3 control-label"  %>
+	        <div class="">
+	        	 <%= f.attachment_field :before_back_image %>
+	    	</div>
+	    </div>
+
+		<div class="form-group">
+			<%= f.label :order_front_image, "order前：", class:"col-lg-3 control-label"  %>
+	        <div class="">
+	        	 <%= f.attachment_field :order_front_image %>
+	    	</div>
+	    </div>
+
+		<div class="form-group">
+			<%= f.label :order_side_image, "order横：", class:"col-lg-3 control-label"  %>
+	        <div class="">
+	        	 <%= f.attachment_field :order_side_image %>
+	    	</div>
+	    </div>
+
+		<div class="form-group">
+			<%= f.label :order_back_image, "order後：", class:"col-lg-3 control-label"  %>
+	        <div class="">
+	        	 <%= f.attachment_field :order_back_image %>
+	    	</div>
+	    </div>
+
+		<div class="form-group">
+			<%= f.label :after_front_image, "after前：", class:"col-lg-3 control-label"  %>
+	        <div class="">
+	        	 <%= f.attachment_field :after_front_image %>
+	    	</div>
+	    </div>
+
+		<div class="form-group">
+			<%= f.label :after_side_image, "after横：", class:"col-lg-3 control-label"  %>
+	        <div class="">
+	        	 <%= f.attachment_field :after_side_image %>
+	    	</div>
+	    </div>
+
+		<div class="form-group">
+			<%= f.label :after_back_image, "after後：", class:"col-lg-3 control-label"  %>
+	        <div class="">
+	        	 <%= f.attachment_field :after_back_image %>
+	    	</div>
+	    </div>
+
+		<div class="form-group">
+			<%= f.label :salon, "サロン名：", class:"col-lg-3 control-label" %>
+			<div class="">
+				<%= f.text_field :salon, :placeholder => "サロン名"%>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<%= f.label :stylist, "スタイリスト名：", class:"col-lg-3 control-label" %>
+			<div class="">
+				<%= f.text_field :stylist, :placeholder => "スタイリスト名"%>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<%= f.label :color, "カラー：", class:"col-lg-3 control-label" %>
+			<div class="">
+				<%= f.select :color, [["ブラウン・ベージュ系","ブラウン・ベージュ系"],["イエロー・オレンジ系","イエロー・オレンジ系"],["レッド・ピンク系","レッド・ピンク系"],["アッシュ・ブラック系","アッシュ・ブラック系"],["その他カラー","その他カラー"]], :prompt => "選択してください"%>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<%= f.label :menu, "メニュー：", class:"col-lg-3 control-label" %>
+			<div class="">
+				<%= f.select :menu, [["カット","カット"],["パーマ","パーマ"],["ストレートパーマ・縮毛矯正","ストレートパーマ・縮毛矯正"],["エクステ","エクステ"],["その他","その他"]], :prompt => "選択してください"%>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<%= f.label :price, "料金：", class:"col-lg-3 control-label" %>
+			<div class="">
+				<%= f.select :price, [["1000円未満","1000円未満"],["1000~1999円","1000~1999円"],["2000~2999円","2000~2999円"],["3000~3999円","3000~3999円"],["4000~4999円","4000~4999円"],["5000~5999円","5000~5999円"],["6000~6999円","6000~6999円"],["7000~7999円","7000~7999円"],["8000~8999円","8000~8999円"],["9000~9999円","9000~9999円"],["10000円以上","10000円以上"]], :prompt => "選択してください"%>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<%= f.label :length, "スタイル：", class:"col-lg-3 control-label" %>
+			<div class="">
+				<%= f.select :length, [["ベリーショート","ベリーショート"],["ショート","ショート"],["ミディアム","ミディアム"],["セミロング","セミロング"],["ロング","ロング"]], :prompt => "選択してください"%>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<%= f.label :goods, "スタイリング材：", class:"col-lg-3 control-label" %>
+			<div class="">
+				<%= f.text_field :goods, :placeholder => "スタイリング材"%>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<%= f.label :comment, "コメント：", class:"col-lg-3 control-label" %>
+			<div class="">
+				<%= f.text_area :comment %>
+			</div>
+		</div>
+
+
+		<div class="form-group">
+			<div class=" ">
+				<%= f.submit "投稿する", class:"btn btn-primary btn-block", style:"margin-bottom: 30px;" %>
+			</div>
+		</div>
+	<% end %>
+</div>

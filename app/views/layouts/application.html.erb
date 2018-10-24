@@ -79,5 +79,22 @@
       </div>
     </nav>
     <%= yield %>
+    <footer class="footer">
+        <div class="footer__logo"></div>
+        <div class="footer__nav">
+          <nav>
+            <ul>
+              <li class="footer__li"><a href="" title=""></a>会社概要</li>
+              <li class="footer__li"><a href="" title=""></a>お問い合わせ</li>
+            </ul>
+          </nav>
+        </div>
+        <div class="footer__icon">
+          <%= fa_icon("facebook-f 2x")%>
+          <%= fa_icon("twitter 2x")%>
+          <%= fa_icon("instagram 2x")%>
+        </div>
+        <p class="footer__copyright">Copyright ©︎ 2018 C:connect.inc All rights reserved.</p>
+    </footer>
   </body>
 </html>

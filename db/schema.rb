@@ -85,7 +85,7 @@ ActiveRecord::Schema.define(version: 2018_10_18_081440) do
     t.string "last_sign_in_ip"
     t.string "user_name"
     t.string "user_key", null: false
-    t.integer "age"
+    t.string "age"
     t.string "profile_image_id"
     t.string "address"
     t.string "sex"

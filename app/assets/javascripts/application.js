@@ -27,7 +27,7 @@ $(function() {
             $('.favorite-' + e.detail[0]).addClass('favorite-color');
         }
         $('.favorite-of-'+ e.detail[0]).html(e.detail[0][1]);
-    })
+    });
 
     $(document).on("ajax:success", ".fav2", function(e) {
         $('.like-of-'+ e.detail[0]).html(e.detail[0][1]);
@@ -41,13 +41,13 @@ $(function() {
         } else {
             $('.like-icon-' + e.detail[0]).removeClass('glyphicon glyphicon-heart-empty').addClass('glyphicon glyphicon-heart');
         }
-    })
+    });
 
 
      $(document).on("ajax:success", ".follow", function(e) {
         var id = e.target.attributes[1].value;
         $('.user-'+ id).html(e.detail[2]["response"]);
-　　　})
+　　　});
 
 
     $(document).on('click', '.sex-label', function() {
@@ -82,7 +82,7 @@ $(function() {
         })
         .fail(function() {
         })
-    })
+    });
 
     $(document).on('click', '.user-sex-label', function() {
         var c = '';
@@ -116,9 +116,70 @@ $(function() {
         })
         .fail(function() {
         })
-    })
-});
+    });
 
+
+    // $('.mo_icon').hover(function(){
+      // if ($(this).hasClass('mo_style')) {
+        // $('.style_modal').addClass('active');
+    //   } else if ($(this).hasClass('mo_color')) {
+    //     $('.color_modal').addClass('active');
+    //   } else if ($(this).hasClass('mo_menu')) {
+    //     $('.menu_modal').addClass('active');
+    //   } else if ($(this).hasClass('mo_clothes')) {
+    //     $('.clothes_modal').addClass('active');
+    //   } else if ($(this).hasClass('mo_age')) {
+    //     $('.age_modal').addClass('active');
+    //   } else if ($(this).hasClass('mo_area')) {
+    //     $('.area_modal').addClass('active');
+    //   } else {
+    //     $('.price_modal').addClass('active');
+    //   }
+    // });
+
+    // $('.list-group').hover(function(){
+    //   if ($(this).hasClass('style_modal')) {
+    //     $('.style_modal').addClass('active');
+    //   } else if ($(this).hasClass('color_modal')) {
+    //     $('.color_modal').addClass('active');
+    //   } else if ($(this).hasClass('menu_modal')) {
+    //     $('.menu_modal').addClass('active');
+    //   } else if ($(this).hasClass('clothes_modal')) {
+    //     $('.clothes_modal').addClass('active');
+    //   } else if ($(this).hasClass('age_modal')) {
+    //     $('.age_modal').addClass('active');
+    //   } else if ($(this).hasClass('area_modal')) {
+    //     $('.area_modal').addClass('active');
+    //   } else {
+    //     $('.price_modal').addClass('active');
+    //   }
+    // });
+
+    $('.mo_iconn').hover(function(){
+        $('.'+$(this).data('mo')).addClass('active');
+        if ($(this).hasClass('style_span')) {
+            $('.mo_style').addClass('active');
+        } else if ($(this).hasClass('color_span')) {
+            $('.mo_color').addClass('active');
+        } else if ($(this).hasClass('menu_span')) {
+            $('.mo_menu').addClass('active');
+        } else if ($(this).hasClass('clothes_span')) {
+            $('.mo_clothes').addClass('active');
+        } else if ($(this).hasClass('age_span')) {
+            $('.mo_age').addClass('active');
+        } else if ($(this).hasClass('area_span')) {
+            $('.mo_area').addClass('active');
+        } else {
+            $('.mo_price').addClass('active');
+        }
+        $('.active').hover(function() {
+
+        }, function() {
+            $('.active').removeClass('active');
+        })
+    }, function() {
+    });
+});
 
 
 

@@ -9,15 +9,13 @@
                 <%= image_tag "no_image.jpg",class: "img-circle", size: "148x148" %>
             <% end %>
         <% end %>
-        <% if current_user == user %>
-            <%= link_to "プロフィール変更", edit_user_path(user.id), class: "btn btn-default", style: "margin-left: 10px;"  %>
-        <% end %>
     </div>
     <div class="mypage-user-key col-md-4">
             <%= user.user_key %>
     </div>
     <div class="user-<%= user.id %> col-md-3">
         <% if current_user == user %>
+            <%= link_to "プロフィール変更", edit_user_path(user.id), class: "btn btn-default edit-btn" %>
         <% else %>
             <%= render "relationships/user", user: user %>
         <% end %>
