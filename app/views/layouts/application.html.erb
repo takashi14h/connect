@@ -96,5 +96,33 @@
         </div>
         <p class="footer__copyright">Copyright ©︎ 2018 C:connect.inc All rights reserved.</p>
     </footer>
+    <script>
+      $(function() {
+        $('.mo_iconn').hover(function(){
+            $('.'+$(this).data('mo')).addClass('active');
+            if ($(this).hasClass('style_span')) {
+                $('.mo_style').addClass('active');
+            } else if ($(this).hasClass('color_span')) {
+                $('.mo_color').addClass('active');
+            } else if ($(this).hasClass('menu_span')) {
+                $('.mo_menu').addClass('active');
+            } else if ($(this).hasClass('clothes_span')) {
+                $('.mo_clothes').addClass('active');
+            } else if ($(this).hasClass('age_span')) {
+                $('.mo_age').addClass('active');
+            } else if ($(this).hasClass('area_span')) {
+                $('.mo_area').addClass('active');
+            } else {
+                $('.mo_price').addClass('active');
+            }
+            $('.active').hover(function() {
+
+            }, function() {
+                $('.active').removeClass('active');
+            })
+        }, function() {
+        });
+      });
+    </script>
   </body>
 </html>

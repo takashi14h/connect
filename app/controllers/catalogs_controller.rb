@@ -15,9 +15,11 @@ class CatalogsController < ApplicationController
 
   def create
     @catalog = Catalog.new(catalog_params)
+    @catalog.user_id = current_user.id
     if @catalog.save
-      redirect_to users_toukou_path(current_user.id)
+      redirect_to catalog_path(@catalog.id)
     else
+      puts @catalog.errors.full_messages
       flash[:alert] = "変更できませんでした"
       redirect_to new_catalog_path
     end
@@ -30,7 +32,7 @@ class CatalogsController < ApplicationController
   def update
     @catalog = Catalog.find(params[:id])
     if @catalog.update(catalog_params)
-      redirect_to users_toukou_path(current_user.id)
+      redirect_to catalog_path(@catalog.id)
     else
       flash[:alert] = "変更できませんでした"
       redirect_to edit_catalog_path(@catalog.id)

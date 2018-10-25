@@ -292,6 +292,7 @@ li {
   height: 400px;
   background-color: #ffffff;
   border: solid 1px #C0C0C0;
+  margin-top: 30px;
 }
 
 .footer__logo {
@@ -330,7 +331,8 @@ li {
 
 .list-group{
 	width: 200px;
-	height: fit-content;
+	height: 193px;
+	overflow: auto;
 	border: solid 1px #C0C0C0;
  	box-shadow: 0 0 8px #C0C0C0;
 	position: absolute;

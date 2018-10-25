@@ -51,7 +51,14 @@ $(function() {
 
 
     $(document).on('click', '.sex-label', function() {
+        var a = '';
+        var b = '';
         var c = '';
+        var d = '';
+        var e = '';
+        var f = '';
+        var g = '';
+        var h = '';
         $('.ALL').removeClass('sex-label-color');
         $('.MEN').removeClass('sex-label-color');
         $('.WOMEN').removeClass('sex-label-color');
@@ -69,11 +76,99 @@ $(function() {
             c = "KIDS";
             $('.KIDS').addClass('sex-label-color');
         }
+        a = $(".style-item" + '.sex-label-color').text();
+        b = $(".color-item" + '.sex-label-color').text();
+        d = $(".menu-item" + '.sex-label-color').text();
+        e = $(".clothes-item" + '.sex-label-color').text();
+        f = $(".age-item" + '.sex-label-color').text();
+        g = $(".area-item" + '.sex-label-color').text();
+        h = $(".price-item" + '.sex-label-color').text();
         $.ajax({
             url: '/lab',
             type: 'get',
             async: true,
-            data: {"sexlab": c},
+            data: {
+                "sexlab": c,
+                "stylelab": a,
+                "colorlab": b,
+                "menulab": d,
+                "clotheslab": e,
+                "agelab": f,
+                "arealab": g,
+                "pricelab": h
+            },
+            beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))}
+        })
+        .done(function(f) {
+            // console.log(f)
+            $('.label-wrapper').html(f);
+        })
+        .fail(function() {
+        })
+    });
+
+    $(document).on('click', '.list-group-item', function() {
+        var a = '';
+        var b = '';
+        var c = '';
+        var d = '';
+        var e = '';
+        var f = '';
+        var g = '';
+        var h = '';
+        if ($('.ALL').hasClass('sex-label-color')) {
+            c = "ALL";
+        } else if ($('.MEN').hasClass('sex-label-color')){
+            c = "MEN";
+        } else if ($('.WOMEN').hasClass('sex-label-color')){
+            c = "WOMEN";
+        } else if ($('.KIDS').hasClass('sex-label-color')){
+            c = "KIDS";
+        }
+        if ($(this).hasClass('style-item')) {
+            $('.style-item').removeClass('sex-label-color');
+            $(this).addClass('sex-label-color');
+        } else if ($(this).hasClass('color-item')) {
+            $('.color-item').removeClass('sex-label-color');
+            $(this).addClass('sex-label-color');
+        } else if ($(this).hasClass('menu-item')) {
+            $('.menu-item').removeClass('sex-label-color');
+            $(this).addClass('sex-label-color');
+        } else if ($(this).hasClass('clothes-item')) {
+            $('.clothes-item').removeClass('sex-label-color');
+            $(this).addClass('sex-label-color');
+        } else if ($(this).hasClass('age-item')) {
+            $('.age-item').removeClass('sex-label-color');
+            $(this).addClass('sex-label-color');
+        } else if ($(this).hasClass('area-item')) {
+            $('.area-item').removeClass('sex-label-color');
+            $(this).addClass('sex-label-color');
+        } else {
+            $('.price-item').removeClass('sex-label-color');
+            $(this).addClass('sex-label-color');
+        }
+        a = $(".style-item" + '.sex-label-color').text();
+        b = $(".color-item" + '.sex-label-color').text();
+        d = $(".menu-item" + '.sex-label-color').text();
+        e = $(".clothes-item" + '.sex-label-color').text();
+        f = $(".age-item" + '.sex-label-color').text();
+        g = $(".area-item" + '.sex-label-color').text();
+        h = $(".price-item" + '.sex-label-color').text();
+            alert(a);
+        $.ajax({
+            url: '/lab',
+            type: 'get',
+            async: true,
+            data: {
+                "sexlab": c,
+                "stylelab": a,
+                "colorlab": b,
+                "menulab": d,
+                "clotheslab": e,
+                "agelab": f,
+                "arealab": g,
+                "pricelab": h
+            },
             beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))}
         })
         .done(function(f) {
@@ -86,10 +181,7 @@ $(function() {
 
     $(document).on('click', '.user-sex-label', function() {
         var c = '';
-        $('.ALL').removeClass('sex-label-color');
-        $('.MEN').removeClass('sex-label-color');
-        $('.WOMEN').removeClass('sex-label-color');
-        $('.KIDS').removeClass('sex-label-color');
+        $('.sex-label-color').removeClass('sex-label-color');
         if ($(this).hasClass('ALL')) {
             c = "ALL";
             $('.ALL').addClass('sex-label-color');
@@ -116,68 +208,6 @@ $(function() {
         })
         .fail(function() {
         })
-    });
-
-
-    // $('.mo_icon').hover(function(){
-      // if ($(this).hasClass('mo_style')) {
-        // $('.style_modal').addClass('active');
-    //   } else if ($(this).hasClass('mo_color')) {
-    //     $('.color_modal').addClass('active');
-    //   } else if ($(this).hasClass('mo_menu')) {
-    //     $('.menu_modal').addClass('active');
-    //   } else if ($(this).hasClass('mo_clothes')) {
-    //     $('.clothes_modal').addClass('active');
-    //   } else if ($(this).hasClass('mo_age')) {
-    //     $('.age_modal').addClass('active');
-    //   } else if ($(this).hasClass('mo_area')) {
-    //     $('.area_modal').addClass('active');
-    //   } else {
-    //     $('.price_modal').addClass('active');
-    //   }
-    // });
-
-    // $('.list-group').hover(function(){
-    //   if ($(this).hasClass('style_modal')) {
-    //     $('.style_modal').addClass('active');
-    //   } else if ($(this).hasClass('color_modal')) {
-    //     $('.color_modal').addClass('active');
-    //   } else if ($(this).hasClass('menu_modal')) {
-    //     $('.menu_modal').addClass('active');
-    //   } else if ($(this).hasClass('clothes_modal')) {
-    //     $('.clothes_modal').addClass('active');
-    //   } else if ($(this).hasClass('age_modal')) {
-    //     $('.age_modal').addClass('active');
-    //   } else if ($(this).hasClass('area_modal')) {
-    //     $('.area_modal').addClass('active');
-    //   } else {
-    //     $('.price_modal').addClass('active');
-    //   }
-    // });
-
-    $('.mo_iconn').hover(function(){
-        $('.'+$(this).data('mo')).addClass('active');
-        if ($(this).hasClass('style_span')) {
-            $('.mo_style').addClass('active');
-        } else if ($(this).hasClass('color_span')) {
-            $('.mo_color').addClass('active');
-        } else if ($(this).hasClass('menu_span')) {
-            $('.mo_menu').addClass('active');
-        } else if ($(this).hasClass('clothes_span')) {
-            $('.mo_clothes').addClass('active');
-        } else if ($(this).hasClass('age_span')) {
-            $('.mo_age').addClass('active');
-        } else if ($(this).hasClass('area_span')) {
-            $('.mo_area').addClass('active');
-        } else {
-            $('.mo_price').addClass('active');
-        }
-        $('.active').hover(function() {
-
-        }, function() {
-            $('.active').removeClass('active');
-        })
-    }, function() {
     });
 });
 
