@@ -154,7 +154,6 @@ $(function() {
         f = $(".age-item" + '.sex-label-color').text();
         g = $(".area-item" + '.sex-label-color').text();
         h = $(".price-item" + '.sex-label-color').text();
-            alert(a);
         $.ajax({
             url: '/lab',
             type: 'get',
