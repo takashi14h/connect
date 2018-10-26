@@ -79,6 +79,13 @@
 		</div>
 
 		<div class="form-group">
+			<%= f.label :address, "サロン住所：", class:"col-lg-3 control-label" %>
+			<div class="">
+				<%= f.text_field :address, :placeholder => "サロン住所"%>
+			</div>
+		</div>
+
+		<div class="form-group">
 			<%= f.label :stylist, "スタイリスト名：", class:"col-lg-3 control-label" %>
 			<div class="">
 				<%= f.text_field :stylist, :placeholder => "スタイリスト名"%>
@@ -126,6 +133,7 @@
 				<%= f.text_area :comment %>
 			</div>
 		</div>
+		<%= link_to "この投稿を削除する", catalog_path(@catalog.id), class: "btn btn-default user-btn", method: :delete, "data-confirm" => "Are you sure?" %>
 
 
 		<div class="form-group">

@@ -69,4 +69,7 @@ gem 'font-awesome-rails'
 gem 'kaminari'
 gem 'seed-fu'
 gem 'cocoon'
+gem 'geocoder'
+gem "gmaps4rails"
+gem 'impressionist'
 

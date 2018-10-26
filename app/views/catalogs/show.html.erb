@@ -162,6 +162,11 @@
 				</div>
             <% else %>
             <% end %>
+            <% if @catalog.address.present? %>
+				<h2>サロン住所</h2>
+				<div id="map"></div>
+            <% else %>
+            <% end %>
 			<div class="catalog_create_at">
 				<span class="glyphicon glyphicon-time" aria-hidden="true"></span>
 				<%= @catalog.created_at.strftime('%Y/%m/%d %H:%M') %>
@@ -187,3 +192,19 @@
   dots: true,
  });
 </script>
+
+  <script type="text/javascript">
+    handler = Gmaps.build('Google');
+    handler.buildMap({ provider: { scrollwheel: false }, internal: {id: 'map'}}, function(){
+      markers = handler.addMarkers([
+        {
+          "lat": <%= @catalog.latitude %>,
+          "lng": <%= @catalog.longitude %>,
+		  "infowindow": '<p><%= @catalog.address %></p><p><%= link_to "Googleマップで見る" ,"https://maps.google.co.jp/maps?q=loc:#{@catalog.latitude},#{@catalog.longitude}&iwloc=J",target: "_blank" %></p>'
+        }
+      ]);
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+      handler.getMap().setZoom(17);
+    });
+  </script>

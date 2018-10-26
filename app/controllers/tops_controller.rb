@@ -3,7 +3,9 @@ class TopsController < ApplicationController
   	@catalogs = Catalog.page(params[:page]).reverse_order.per(15)
     a = Relationship.group(:followed_id).order('count(follower_id) desc').limit(5).pluck(:followed_id)
     @users = User.where(id: a)
+    @catalog = Catalog.order('impressions_count DESC').limit(3)
   end
+
 
   def lab
   	if params[:sexlab] == 'ALL'
@@ -41,7 +43,7 @@ class TopsController < ApplicationController
     end
     if params[:arealab].blank?
     else
-      area = User.where(address: params[:arealab])
+      area = User.where(user_address: params[:arealab])
       area = area.pluck(:id)
       @catalogs = @catalogs.where(user_id: area)
     end

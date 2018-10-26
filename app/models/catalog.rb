@@ -11,6 +11,9 @@ class Catalog < ApplicationRecord
 	attachment :after_back_image
     has_many :favorites, dependent: :destroy
     has_many :likes, dependent: :destroy
+	  geocoded_by :address
+	  after_validation :geocode
+	  is_impressionable counter_cache: true
     
     def favorited_by?(user)
       favorites.where(user_id: user.id).exists?

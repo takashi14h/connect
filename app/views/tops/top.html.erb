@@ -4,10 +4,110 @@
         <div class="col-lg-3">
           <%= render "tops/sidebar", users: @users %>
         </div>
-        <div class="label-wrapper">
-        	<%= render "tops/itiran", catalogs: @catalogs %>
+        <div class="col-lg-9">
+        <h3><%= image_tag "王冠.png" ,alt: "" ,class: "u_icon" %> 総合ランキング</h3>
+		<div class="ranking flex">
+		<% i = 0 %>
+        <% @catalog.each do |catalog| %>
+	    	<div class="box">
+	    		<div class="image" style="position: relative;">
+					<% if i == 0 %>
+						<div class="rank" style="position: absolute;"><%= image_tag "1位.png" ,alt: "" ,class: "top_icon" %></div>
+					<% elsif i == 1 %>
+						<div class="rank" style="position: absolute;"><%= image_tag "2位.png" ,alt: "" ,class: "top_icon" %></div>
+					<% else %>
+						<div class="rank" style="position: absolute;"><%= image_tag "3位.png" ,alt: "" ,class: "top_icon" %></div>
+					<% end %>
+	                <%= link_to catalog_path(catalog.id) do%>
+	    		        <%= attachment_image_tag  catalog, :after_front_image, :fill, 230, 308, format: 'jpeg', class: "image-hover" %>
+	                <% end %>
+	    		</div>
+	    		<div class="btn-group like" role="group">
+	                <% if user_signed_in? && current_user != catalog.user %>
+	                    <% if catalog.favorited_by?(current_user) %>
+	                        <%= link_to fav1_catalogs_path(catalog), class: 'fav1 col-md-6', remote: true do %>
+	                            <i class="glyphicon glyphicon-plus-sign favorite-color favorite-<%= catalog.id %>" aria-hidden="true"></i>
+	                            <span class="favorite-of-<%= catalog.id %> favorite-color favorite-<%= catalog.id %>">
+	                              <%= catalog.favorites.count %>
+	                            </span>
+	                        <% end %>
+	                    <% else %>
+	                        <%= link_to fav1_catalogs_path(catalog), class: 'fav1 col-md-6', remote: true do %>
+	                            <i class="glyphicon glyphicon-plus-sign favorite-<%= catalog.id %>" aria-hidden="true"></i>
+	                            <span class="favorite-of-<%= catalog.id %> favorite-<%= catalog.id %>">
+	                              <%= catalog.favorites.count %>
+	                            </span>
+	                        <% end %>
+	                    <% end %>
+	                <% else %>
+	                    <div class="col-md-6 no-icon">
+	                        <i class="glyphicon glyphicon-plus-sign" aria-hidden="true"></i>
+	                        <span>
+	                          <%= catalog.favorites.count %>
+	                        </span>
+	                    </div>
+	                <% end %>
+	                <% if user_signed_in? && current_user != catalog.user %>
+	                    <% if catalog.liked_by?(current_user) %>
+	                        <%= link_to fav2_catalogs_path(catalog), class: 'fav2 col-md-6', remote: true do %>
+	                            <i class="glyphicon glyphicon-heart favorite-color like-icon-<%= catalog.id %> like-<%= catalog.id %>" aria-hidden="true"></i>
+	                            <span class="like-of-<%= catalog.id %> favorite-color like-<%= catalog.id %>" >
+	                              <%= catalog.likes.count %>
+	                            </span>
+	                        <% end %>
+	                    <% else %>
+	                        <%= link_to fav2_catalogs_path(catalog), class: 'fav2 col-md-6', remote: true do %>
+	                            <i class="glyphicon glyphicon-heart-empty like-icon-<%= catalog.id %> like-<%= catalog.id %>" aria-hidden="true"></i>
+	                            <span class="like-of-<%= catalog.id %> like-<%= catalog.id %>" >
+	                              <%= catalog.likes.count %>
+	                            </span>
+	                        <% end %>
+	                    <% end %>
+	                <% else %>
+	                    <div class="col-md-6 no-icon">
+	                        <i class="glyphicon glyphicon-heart-empty" aria-hidden="true"></i>
+	                        <span>
+	                          <%= catalog.likes.count %>
+	                        </span>
+	                    </div>
+	                <% end %>
+	    		</div>
+	    		<div class="user">
+	                <div class='col-md-3'>
+	                    <% if catalog.user.profile_image.present? %>
+	                        <%= link_to users_toukou_path(catalog.user.id) do %>
+	                            <%= attachment_image_tag catalog.user, :profile_image, format: 'jpeg', class: "img-circle itiran-image-size image-hover" %>
+	                        <% end %>
+	                    <% else %>
+	                        <%= link_to users_toukou_path(catalog.user.id) do %>
+	                            <%= image_tag "no_image.jpg",class: "img-circle", size: "40x40" %>
+	                        <% end %>
+	                    <% end %>
+	                </div>
+	                <div class="user-key col-md-4">
+	   			        <%= catalog.user.user_key %>
+	                </div>
+	                <div class="user-<%= catalog.user.id %> col-md-5">
+                        <% if current_user == catalog.user %>
+                        <% else %>
+                            <% if user_signed_in? %>
+                                <%= render "relationships/user", user: catalog.user %>
+                            <% end %>
+                        <% end %>
+	                </div>
+	    		</div>
+	    	</div>
+	    <% i+= 1 %>
+    	<% end %>
+	    	<div style="position: relative;">
+				<%= link_to "もっと見る", catalogs_path, class: "btn btn-default user-btn btn-posi" %>
+			</div>
+    	</div>
+        <h3><%= image_tag "カメラ.png" ,alt: "" ,class: "u_icon" %> 新着順</h3>
+	        <div class="label-wrapper flex">
+	        	<%= render "tops/itiran", catalogs: @catalogs %>
+	    	</div>
     	</div>
     </div>
 </div>
-
 

@@ -19,6 +19,10 @@ class CreateCatalogs < ActiveRecord::Migration[5.2]
       t.string :color
       t.string :goods
       t.text :comment
+      t.string :address
+      t.float :latitude
+      t.float :longitude
+      t.integer :impressions_count, default: 0
 
       t.timestamps
     end

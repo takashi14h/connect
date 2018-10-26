@@ -353,11 +353,29 @@ li {
 	z-index: 2;
 }
 
+#map{
+	height: 400px;
+    margin-left:auto;
+    margin-right:auto;
+    text-align:left;
+    width: 80%;
+    margin-bottom: 20px;
+}
 
 
+.ranking{
+	width: 100%;
+}
 
+.top_icon{
+	width: 42px;
+	height: 41px;
+	margin-right: 10px;
+}
 
-
-
+.btn-posi{
+	position: absolute;
+	bottom: 0px;
+}
 
 

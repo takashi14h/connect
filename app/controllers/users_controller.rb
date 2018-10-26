@@ -77,6 +77,6 @@ class UsersController < ApplicationController
   v["fashion_id"] == ''
 }
 puts params[:user][:f_middles_attributes]
-    params.require(:user).permit(:user_name, :user_key, :age, :profile_image, :address, :sex, :face, :hair_shitu, :hair_ryou, :hair_futosa, :hair_kuse, :introduce, f_middles_attributes: [:id, :user_id, :fashion_id, :_destroy])
+    params.require(:user).permit(:user_name, :user_key, :age, :profile_image, :user_address, :sex, :face, :hair_shitu, :hair_ryou, :hair_futosa, :hair_kuse, :introduce, f_middles_attributes: [:id, :user_id, :fashion_id, :_destroy])
   end
 end
