@@ -1,0 +1,23 @@
+<% if user_signed_in? %>
+  <% if catalogs.favorite_user?(current_user.id) %>
+    <%= link_to catalog_favorites_path(catalog_id: catalogs.id), class: 'col-md-6 favorite-color', method: :delete, remote: true do %>
+      <i class="glyphicon glyphicon-plus-sign" aria-hidden="true"></i>
+      <span>
+        <%= favorite_count %>
+      </span>
+    <% end %>
+  <% else %>
+    <%= link_to catalog_favorites_path(catalog_id: catalogs.id), class: 'col-md-6', method: :post, remote: true do %>
+      <i class="glyphicon glyphicon-plus-sign" aria-hidden="true"></i>
+      <span>
+        <%= favorite_count %>
+      </span>
+    <% end %>
+  <% end %>
+<% else %>
+  <i class="glyphicon glyphicon-plus-sign" aria-hidden="true"></i>
+    <span>
+      <%= favorite_count %>
+    </span>
+<% end %>
+

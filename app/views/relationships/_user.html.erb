@@ -1,0 +1,7 @@
+
+<% if current_user.following?(user) %>
+    <td><%= link_to "フォロー中", follow_path(user.id), remote: true, class: "follow now btn btn-default follow-color", data: {"id" => user.id} %></td>
+<% else %>
+    <td><%= link_to "フォローする", follow_path(user.id), remote: true, class: "follow yet btn btn-default", data: {"id" => user.id} %></td>
+    <!-- カスタムデータ属性 -->
+<% end %>

@@ -1,0 +1,9 @@
+		<div class="nested-fields">
+			<div class="form-group">
+				<%= f.label :fashion_id, "服装：", class:"col-lg-3 control-label"  %>
+				<div class="col-lg-9">
+					<%= f.collection_select :fashion_id, @fashions, :id, :fashion_name, {:prompt => "選択してください"}, {class: 'js-searchable'} %>
+				</div>
+			</div>
+			<%= link_to_remove_association "削除", f %>
+		</div>

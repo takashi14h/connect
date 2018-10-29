@@ -1,0 +1,24 @@
+<div class="user-label">
+    <div class='mypage-image col-md-5'>
+        <% if user.profile_image.present? %>
+            <%= link_to users_toukou_path(user.id),style: "display: inline-block; height: 0px;" do %>
+                <%= attachment_image_tag user, :profile_image, format: 'jpeg',class: "img-circle mypage-image-size image-hover" %>
+            <% end %>
+        <% else %>
+            <%= link_to users_toukou_path(user.id) do %>
+                <%= image_tag "/images/no_image.jpg",class: "img-circle", size: "148x148" %>
+            <% end %>
+        <% end %>
+    </div>
+    <div class="mypage-user-key col-md-4">
+            <%= user.user_key %>
+    </div>
+    <div class="user-<%= user.id %> col-md-3">
+        <% if current_user == user %>
+            <%= link_to "プロフィール変更", edit_user_path(user.id), class: "btn btn-default edit-btn" %>
+        <% else %>
+            <%= render "relationships/user", user: user %>
+        <% end %>
+    </div>
+</div>
+
