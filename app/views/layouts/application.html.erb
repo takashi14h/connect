@@ -19,7 +19,7 @@
             <form action="<%= users_search_path %>" method="get" class="form-inline">
               <input type="text" id="search__bar" name="s_title" required size="10" placeholder=" ユーザー名" value="<%= request[:s_title] %>">
                 <button  class="search__box" type="submit">
-                    <span class="search__box__txt" ><%= image_tag "search.png", alt:"" %> 検索</span>
+                    <span class="search__box__txt" ><%= image_tag "/images/search.png", alt:"" %> 検索</span>
                 </button>
             </form>
           </div>
@@ -47,7 +47,7 @@
                 <form action="<%= users_path %>" method="get" class="form-inline">
                   <input type="text" id="search__bar" name="s_title" required size="10" placeholder=" ユーザー名" value="<%= request[:s_title] %>">
                     <button  class="search__box" type="submit">
-                        <span class="search__box__txt" ><%= image_tag "search.png", alt:"" %> 検索</span>
+                        <span class="search__box__txt" ><%= image_tag "/images/search.png", alt:"" %> 検索</span>
                     </button>
                 </form>
               </div>
@@ -98,6 +98,8 @@
         </div>
         <p class="footer__copyright">Copyright ©︎ 2018 C:connect.inc All rights reserved.</p>
     </footer>
+  </body>
+</html>
     <script>
       $(function() {
         $('.mo_iconn').hover(function(){
@@ -126,5 +128,3 @@
         });
       });
     </script>
-  </body>
-</html>

@@ -33,4 +33,12 @@ class User < ApplicationRecord
   def unfollow!(other_user)
     relationships.find_by(followed_id: other_user.id).destroy
   end
+
+  def active_for_authentication?
+    !deleted_at
+  end
+
+  def inactive_message
+    !deleted_at ? super : :deleted_account
+  end
 end

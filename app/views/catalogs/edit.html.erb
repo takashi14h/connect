@@ -133,7 +133,7 @@
 				<%= f.text_area :comment %>
 			</div>
 		</div>
-		<%= link_to "この投稿を削除する", catalog_path(@catalog.id), class: "btn btn-default user-btn", method: :delete, "data-confirm" => "Are you sure?" %>
+		<%= link_to "この投稿を削除する", catalog_path(@catalog.id), class: "btn btn-default user-btn", method: :delete, "data-confirm" => "本当に削除しますか?" %>
 
 
 		<div class="form-group">

@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2018_10_26_071849) do
     t.string "address"
     t.float "latitude"
     t.float "longitude"
+    t.datetime "deleted_at"
     t.integer "impressions_count", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -42,12 +43,14 @@ ActiveRecord::Schema.define(version: 2018_10_26_071849) do
   create_table "f_middles", force: :cascade do |t|
     t.integer "user_id"
     t.integer "fashion_id"
+    t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "fashions", force: :cascade do |t|
     t.string "fashion_name"
+    t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -55,6 +58,7 @@ ActiveRecord::Schema.define(version: 2018_10_26_071849) do
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id"
     t.integer "catalog_id"
+    t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -69,6 +73,7 @@ ActiveRecord::Schema.define(version: 2018_10_26_071849) do
     t.string "request_hash"
     t.string "ip_address"
     t.string "session_hash"
+    t.datetime "deleted_at"
     t.text "message"
     t.text "referrer"
     t.text "params"
@@ -88,6 +93,7 @@ ActiveRecord::Schema.define(version: 2018_10_26_071849) do
   create_table "likes", force: :cascade do |t|
     t.integer "user_id"
     t.integer "catalog_id"
+    t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -95,6 +101,7 @@ ActiveRecord::Schema.define(version: 2018_10_26_071849) do
   create_table "relationships", force: :cascade do |t|
     t.integer "follower_id"
     t.integer "followed_id"
+    t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["followed_id"], name: "index_relationships_on_followed_id"

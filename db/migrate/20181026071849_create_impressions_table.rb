@@ -10,6 +10,7 @@ class CreateImpressionsTable < ActiveRecord::Migration[5.2]
       t.string :request_hash
       t.string :ip_address
       t.string :session_hash
+      t.datetime :deleted_at
       t.text :message
       t.text :referrer
       t.text :params

@@ -90,6 +90,7 @@
 				<%= f.text_area :introduce %>
 			</div>
 		</div>
+		<%= link_to "退会する", user_path(current_user.id), class: "btn btn-default user-btn", method: :delete, "data-confirm" => "本当に退会しますか?" %>
 
 		<div class="form-group">
 			<div class=" ">

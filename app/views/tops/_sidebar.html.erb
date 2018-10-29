@@ -1,9 +1,9 @@
 <div class="sidebar">
 	<div class="catalog-sidebar">
-		<h4><%= image_tag "カメラ.png" ,alt: "" ,class: "icon" %>  探す</h4>
+		<h4><%= image_tag "/images/カメラ.png" ,alt: "" ,class: "icon" %>  探す</h4>
 		<div class="sidebar_table">
 			<div class="mo_icon mo_style">
-				<%= image_tag "くし.png" ,alt: "" ,class: "icon" %>  <span class="mo_iconn style_span" data-mo="style_modal">スタイルで探す</span>
+				<%= image_tag "/images/くし.png" ,alt: "" ,class: "icon" %>  <span class="mo_iconn style_span" data-mo="style_modal">スタイルで探す</span>
 				<div class="list-group style_modal">
 				  <p class="list-group-item style-item" href="#">ベリーショート</p>
 				  <p class="list-group-item style-item" href="#">ショート</p>
@@ -13,7 +13,7 @@
 				</div>
 			</div>
 			<div class="mo_icon mo_color">
-				<%= image_tag "色.png" ,alt: "" ,class: "icon" %>  <span class="mo_iconn color_span" data-mo="color_modal">髪色で探す</span>
+				<%= image_tag "/images/色.png" ,alt: "" ,class: "icon" %>  <span class="mo_iconn color_span" data-mo="color_modal">髪色で探す</span>
 				<div class="list-group color_modal">
 				  <p class="list-group-item color-item" href="#">ブラウン・ベージュ系</p>
 				  <p class="list-group-item color-item" href="#">イエロー・オレンジ系</p>
@@ -23,7 +23,7 @@
 				</div>
 			</div>
 			<div class="mo_icon mo_menu">
-				<%= image_tag "メニュー.png" ,alt: "" ,class: "icon" %>  <span class="mo_iconn menu_span" data-mo="menu_modal">メニューで探す</span>
+				<%= image_tag "/images/メニュー.png" ,alt: "" ,class: "icon" %>  <span class="mo_iconn menu_span" data-mo="menu_modal">メニューで探す</span>
 				<div class="list-group menu_modal">
 				  <p class="list-group-item menu-item" href="#">カット</p>
 				  <p class="list-group-item menu-item" href="#">パーマ</p>
@@ -33,7 +33,7 @@
 				</div>
 			</div>
 			<div class="mo_icon mo_clothes">
-				<%= image_tag "服装.png" ,alt: "" ,class: "icon" %>  <span class="mo_iconn clothes_span" data-mo="clothes_modal">服装で探す</span>
+				<%= image_tag "/images/服装.png" ,alt: "" ,class: "icon" %>  <span class="mo_iconn clothes_span" data-mo="clothes_modal">服装で探す</span>
 				<div class="list-group clothes_modal">
 				  <p class="list-group-item clothes-item" href="#">ビジネス</p>
 				  <p class="list-group-item clothes-item" href="#">カジュアル</p>
@@ -50,7 +50,7 @@
 				</div>
 			</div>
 			<div class="mo_icon mo_age">
-				<%= image_tag "年齢.png" ,alt: "" ,class: "icon" %>  <span class="mo_iconn age_span" data-mo="age_modal">年齢で探す</span>
+				<%= image_tag "/images/年齢.png" ,alt: "" ,class: "icon" %>  <span class="mo_iconn age_span" data-mo="age_modal">年齢で探す</span>
 				<div class="list-group age_modal">
 				  <p class="list-group-item age-item" href="#">10歳未満</p>
 				  <p class="list-group-item age-item" href="#">10代前半</p>
@@ -69,7 +69,7 @@
 				</div>
 			</div>
 			<div class="mo_icon mo_area">
-				<%= image_tag "地域.png" ,alt: "" ,class: "icon" %>  <span class="mo_iconn area_span" data-mo="area_modal">地域で探す</span>
+				<%= image_tag "/images/地域.png" ,alt: "" ,class: "icon" %>  <span class="mo_iconn area_span" data-mo="area_modal">地域で探す</span>
 				<div class="list-group area_modal">
 				  <p class="list-group-item area-item" href="#">北海道</p>
 				  <p class="list-group-item area-item" href="#">青森県</p>
@@ -121,7 +121,7 @@
 				</div>
 			</div>
 			<div class="mo_icon mo_price">
-				<%= image_tag "値段.png" ,alt: "" ,class: "icon" %>  <span class="mo_iconn price_span" data-mo="price_modal">値段で探す</span>
+				<%= image_tag "/images/値段.png" ,alt: "" ,class: "icon" %>  <span class="mo_iconn price_span" data-mo="price_modal">値段で探す</span>
 				<div class="list-group price_modal">
 				  <p class="list-group-item price-item" href="#">1000円未満</p>
 				  <p class="list-group-item price-item" href="#">1000~1999円</p>
@@ -139,7 +139,7 @@
 		</div>
 	</div>
 	<div class="user-sidebar">
-		<h4><%= image_tag "人物.png" ,alt: "" ,class: "icon" %>  ユーザー</h4>
+		<h4><%= image_tag "/images/人物.png" ,alt: "" ,class: "icon" %>  ユーザー</h4>
 		<table class="sidebar_table">
 			<tbody>
 		        <% i = 0 %>
@@ -149,15 +149,15 @@
 							<td>
 								<div>
 									<% if i == 0 %>
-										<div class="rank"><%= image_tag "1位.png" ,alt: "" ,class: "r_icon" %></div>
+										<div class="rank"><%= image_tag "/images/1位.png" ,alt: "" ,class: "r_icon" %></div>
 									<% elsif i == 1 %>
-										<div class="rank"><%= image_tag "2位.png" ,alt: "" ,class: "r_icon" %></div>
+										<div class="rank"><%= image_tag "/images/2位.png" ,alt: "" ,class: "r_icon" %></div>
 									<% elsif i == 2 %>
-										<div class="rank"><%= image_tag "3位.png" ,alt: "" ,class: "r_icon" %></div>
+										<div class="rank"><%= image_tag "/images/3位.png" ,alt: "" ,class: "r_icon" %></div>
 									<% elsif i == 3 %>
-										<div class="rank"><%= image_tag "4位.png" ,alt: "" ,class: "r_icon" %></div>
+										<div class="rank"><%= image_tag "/images/4位.png" ,alt: "" ,class: "r_icon" %></div>
 									<% else %>
-										<div class="rank"><%= image_tag "5位.png" ,alt: "" ,class: "r_icon" %></div>
+										<div class="rank"><%= image_tag "/images/5位.png" ,alt: "" ,class: "r_icon" %></div>
 									<% end %>
 									<div class="rank">
 				                        <% if user.profile_image.present? %>
@@ -166,13 +166,13 @@
 				                            <% end %>
 				                        <% else %>
 				                            <%= link_to users_toukou_path(user.id) do %>
-				                                <%= image_tag "no_image.jpg",class: "img-circle", size: "40x40" %>
+				                                <%= image_tag "/images/no_image.jpg",class: "img-circle", size: "40x40" %>
 				                            <% end %>
 				                        <% end %>
 			                    	</div>
 			                    	<div class="rank aaa">
 			           			        <%= user.user_key %><br>
-			           			        <%= image_tag "人物.png" ,alt: "" ,class: "f-icon" %>
+			           			        <%= image_tag "/images/人物.png" ,alt: "" ,class: "f-icon" %>
 			           			        <%= Relationship.where(followed_id: user).count %>
 			           			    </div>
 			           			</div>

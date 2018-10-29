@@ -55,7 +55,7 @@
                     <% if catalog.user.profile_image.present? %>
                         <%= attachment_image_tag catalog.user, :profile_image, :fill, 40, 40, format: 'jpeg' %>
                     <% else %>
-                        <%= image_tag "no_image.jpg",class: "img-circle", size: "40x40" %>
+                        <%= image_tag "/images/no_image.jpg",class: "img-circle", size: "40x40" %>
                     <% end %>
                 </div>
                 <div class="user-key col-md-4">

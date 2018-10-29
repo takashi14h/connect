@@ -22,6 +22,7 @@ class CreateCatalogs < ActiveRecord::Migration[5.2]
       t.string :address
       t.float :latitude
       t.float :longitude
+      t.datetime :deleted_at
       t.integer :impressions_count, default: 0
 
       t.timestamps

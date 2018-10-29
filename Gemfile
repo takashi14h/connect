@@ -72,4 +72,6 @@ gem 'cocoon'
 gem 'geocoder'
 gem "gmaps4rails"
 gem 'impressionist'
+gem 'paranoia', '~> 2.3', '>= 2.3.1'
+gem 'pry-rails'
 

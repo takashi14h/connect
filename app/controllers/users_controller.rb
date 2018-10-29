@@ -57,6 +57,10 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    @user = current_user
+    @user.destroy
+    sign_out(@user)
+    redirect_to root_path
   end
 
   def ulab

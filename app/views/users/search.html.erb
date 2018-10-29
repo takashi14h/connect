@@ -1,6 +1,6 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
-  	<h3><%= image_tag "虫眼鏡.png" ,alt: "" ,class: "u_icon" %> ユーザー検索</h3>
+  	<h3><%= image_tag "/images/虫眼鏡.png" ,alt: "" ,class: "u_icon" %> ユーザー検索</h3>
   </div>
 </nav>
 <div class="container">
@@ -8,29 +8,29 @@
         <div class="col-lg-3">
           <div class="sidebar">
             <div class="catalog-sidebar">
-              <h4><%= image_tag "カメラ.png" ,alt: "" ,class: "icon" %>  探す</h4>
+              <h4><%= image_tag "/images/カメラ.png" ,alt: "" ,class: "icon" %>  探す</h4>
               <table class="sidebar_table">
                 <tbody>
                   <tr>
-                    <td class="mo_icon mo_style"><%= image_tag "くし.png" ,alt: "" ,class: "icon" %>  スタイルで探す</td>
+                    <td class="mo_icon mo_style"><%= image_tag "/images/くし.png" ,alt: "" ,class: "icon" %>  スタイルで探す</td>
                   </tr>
                   <tr>
-                    <td class="mo_icon mo_hair"><%= image_tag "色.png" ,alt: "" ,class: "icon" %>  髪色で探す</td>
+                    <td class="mo_icon mo_hair"><%= image_tag "/images/色.png" ,alt: "" ,class: "icon" %>  髪色で探す</td>
                   </tr>
                   <tr>
-                    <td class="mo_icon mo_menu"><%= image_tag "メニュー.png" ,alt: "" ,class: "icon" %>  メニューで探す</td>
+                    <td class="mo_icon mo_menu"><%= image_tag "/images/メニュー.png" ,alt: "" ,class: "icon" %>  メニューで探す</td>
                   </tr>
                   <tr>
-                    <td class="mo_icon mo_clothes"><%= image_tag "服装.png" ,alt: "" ,class: "icon" %>  服装で探す</td>
+                    <td class="mo_icon mo_clothes"><%= image_tag "/images/服装.png" ,alt: "" ,class: "icon" %>  服装で探す</td>
                   </tr>
                   <tr>
-                    <td class="mo_icon mo_age"><%= image_tag "年齢.png" ,alt: "" ,class: "icon" %>  年齢で探す</td>
+                    <td class="mo_icon mo_age"><%= image_tag "/images/年齢.png" ,alt: "" ,class: "icon" %>  年齢で探す</td>
                   </tr>
                   <tr>
-                    <td class="mo_icon mo_area"><%= image_tag "地域.png" ,alt: "" ,class: "icon" %>  地域で探す</td>
+                    <td class="mo_icon mo_area"><%= image_tag "/images/地域.png" ,alt: "" ,class: "icon" %>  地域で探す</td>
                   </tr>
                   <tr>
-                    <td class="mo_icon mo_price"><%= image_tag "値段.png" ,alt: "" ,class: "icon" %>  値段で探す</td>
+                    <td class="mo_icon mo_price"><%= image_tag "/images/値段.png" ,alt: "" ,class: "icon" %>  値段で探す</td>
                   </tr>
                 </tbody>
               </table>
@@ -49,7 +49,7 @@
                           <% end %>
                       <% else %>
                           <%= link_to users_toukou_path(follower.id) do %>
-                              <%= image_tag "no_image.jpg",class: "img-circle", size: "70x70" %>
+                              <%= image_tag "/images/no_image.jpg",class: "img-circle", size: "70x70" %>
                           <% end %>
                       <% end %>
                   </div>
