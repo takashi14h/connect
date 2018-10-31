@@ -109,7 +109,7 @@ $(function() {
         })
     });
 
-    $(document).on('click', '.list-group-item', function() {
+    $(document).on('click', '.group-item', function() {
         var a = '';
         var b = '';
         var c = '';
@@ -127,27 +127,31 @@ $(function() {
         } else if ($('.KIDS').hasClass('sex-label-color')){
             c = "KIDS";
         }
-        if ($(this).hasClass('style-item')) {
-            $('.style-item').removeClass('sex-label-color');
-            $(this).addClass('sex-label-color');
-        } else if ($(this).hasClass('color-item')) {
-            $('.color-item').removeClass('sex-label-color');
-            $(this).addClass('sex-label-color');
-        } else if ($(this).hasClass('menu-item')) {
-            $('.menu-item').removeClass('sex-label-color');
-            $(this).addClass('sex-label-color');
-        } else if ($(this).hasClass('clothes-item')) {
-            $('.clothes-item').removeClass('sex-label-color');
-            $(this).addClass('sex-label-color');
-        } else if ($(this).hasClass('age-item')) {
-            $('.age-item').removeClass('sex-label-color');
-            $(this).addClass('sex-label-color');
-        } else if ($(this).hasClass('area-item')) {
-            $('.area-item').removeClass('sex-label-color');
-            $(this).addClass('sex-label-color');
+        if ($(this).hasClass('sex-label-color')) {
+            $(this).removeClass('sex-label-color');
         } else {
-            $('.price-item').removeClass('sex-label-color');
-            $(this).addClass('sex-label-color');
+            if ($(this).hasClass('style-item')) {
+                $('.style-item').removeClass('sex-label-color');
+                $(this).addClass('sex-label-color');
+            } else if ($(this).hasClass('color-item')) {
+                $('.color-item').removeClass('sex-label-color');
+                $(this).addClass('sex-label-color');
+            } else if ($(this).hasClass('menu-item')) {
+                $('.menu-item').removeClass('sex-label-color');
+                $(this).addClass('sex-label-color');
+            } else if ($(this).hasClass('clothes-item')) {
+                $('.clothes-item').removeClass('sex-label-color');
+                $(this).addClass('sex-label-color');
+            } else if ($(this).hasClass('age-item')) {
+                $('.age-item').removeClass('sex-label-color');
+                $(this).addClass('sex-label-color');
+            } else if ($(this).hasClass('area-item')) {
+                $('.area-item').removeClass('sex-label-color');
+                $(this).addClass('sex-label-color');
+            } else {
+                $('.price-item').removeClass('sex-label-color');
+                $(this).addClass('sex-label-color');
+            }
         }
         a = $(".style-item" + '.sex-label-color').text();
         b = $(".color-item" + '.sex-label-color').text();
@@ -206,6 +210,139 @@ $(function() {
         .done(function(f) {
             // console.log(f)
             $('.ranking-wrapper').html(f);
+        })
+        .fail(function() {
+        })
+    });
+
+
+    $(document).on('click', '.rank-sex-label', function() {
+        var a = '';
+        var b = '';
+        var c = '';
+        var d = '';
+        var e = '';
+        var f = '';
+        var g = '';
+        var h = '';
+        $('.rALL').removeClass('sex-label-color');
+        $('.rMEN').removeClass('sex-label-color');
+        $('.rWOMEN').removeClass('sex-label-color');
+        $('.rKIDS').removeClass('sex-label-color');
+        if ($(this).hasClass('rALL')) {
+            c = "ALL";
+            $('.rALL').addClass('sex-label-color');
+        } else if ($(this).hasClass('rMEN')){
+            c = "MEN";
+            $('.rMEN').addClass('sex-label-color');
+        } else if ($(this).hasClass('rWOMEN')){
+            c = "WOMEN";
+            $('.rWOMEN').addClass('sex-label-color');
+        } else {
+            c = "KIDS";
+            $('.rKIDS').addClass('sex-label-color');
+        }
+        a = $(".r-style-item" + '.sex-label-color').text();
+        b = $(".r-color-item" + '.sex-label-color').text();
+        d = $(".r-menu-item" + '.sex-label-color').text();
+        e = $(".r-clothes-item" + '.sex-label-color').text();
+        f = $(".r-age-item" + '.sex-label-color').text();
+        g = $(".r-area-item" + '.sex-label-color').text();
+        h = $(".r-price-item" + '.sex-label-color').text();
+        $.ajax({
+            url: '/clab',
+            type: 'get',
+            async: true,
+            data: {
+                "sexlab": c,
+                "stylelab": a,
+                "colorlab": b,
+                "menulab": d,
+                "clotheslab": e,
+                "agelab": f,
+                "arealab": g,
+                "pricelab": h
+            },
+            beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))}
+        })
+        .done(function(f) {
+            // console.log(f)
+            $('.rank-label-wrapper').html(f);
+        })
+        .fail(function() {
+        })
+    });
+
+    $(document).on('click', '.r-group-item', function() {
+        var a = '';
+        var b = '';
+        var c = '';
+        var d = '';
+        var e = '';
+        var f = '';
+        var g = '';
+        var h = '';
+        if ($('.rALL').hasClass('sex-label-color')) {
+            c = "ALL";
+        } else if ($('.rMEN').hasClass('sex-label-color')){
+            c = "MEN";
+        } else if ($('.rWOMEN').hasClass('sex-label-color')){
+            c = "WOMEN";
+        } else if ($('.rKIDS').hasClass('sex-label-color')){
+            c = "KIDS";
+        }
+        if ($(this).hasClass('sex-label-color')) {
+            $(this).removeClass('sex-label-color');
+        } else {
+            if ($(this).hasClass('r-style-item')) {
+                $('.r-style-item').removeClass('sex-label-color');
+                $(this).addClass('sex-label-color');
+            } else if ($(this).hasClass('r-color-item')) {
+                $('.r-color-item').removeClass('sex-label-color');
+                $(this).addClass('sex-label-color');
+            } else if ($(this).hasClass('r-menu-item')) {
+                $('.r-menu-item').removeClass('sex-label-color');
+                $(this).addClass('sex-label-color');
+            } else if ($(this).hasClass('r-clothes-item')) {
+                $('.r-clothes-item').removeClass('sex-label-color');
+                $(this).addClass('sex-label-color');
+            } else if ($(this).hasClass('r-age-item')) {
+                $('.r-age-item').removeClass('sex-label-color');
+                $(this).addClass('sex-label-color');
+            } else if ($(this).hasClass('r-area-item')) {
+                $('.r-area-item').removeClass('sex-label-color');
+                $(this).addClass('sex-label-color');
+            } else {
+                $('.r-price-item').removeClass('sex-label-color');
+                $(this).addClass('sex-label-color');
+            }
+        }
+        a = $(".r-style-item" + '.sex-label-color').text();
+        b = $(".r-color-item" + '.sex-label-color').text();
+        d = $(".r-menu-item" + '.sex-label-color').text();
+        e = $(".r-clothes-item" + '.sex-label-color').text();
+        f = $(".r-age-item" + '.sex-label-color').text();
+        g = $(".r-area-item" + '.sex-label-color').text();
+        h = $(".r-price-item" + '.sex-label-color').text();
+        $.ajax({
+            url: '/clab',
+            type: 'get',
+            async: true,
+            data: {
+                "sexlab": c,
+                "stylelab": a,
+                "colorlab": b,
+                "menulab": d,
+                "clotheslab": e,
+                "agelab": f,
+                "arealab": g,
+                "pricelab": h
+            },
+            beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))}
+        })
+        .done(function(f) {
+            // console.log(f)
+            $('.rank-label-wrapper').html(f);
         })
         .fail(function() {
         })

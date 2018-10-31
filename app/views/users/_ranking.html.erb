@@ -1,4 +1,4 @@
-			<div class="container col-lg-9 index">
+			<div class="container col-lg-10 index">
 			    <div class="flex follow-box">
 			    	<% i = 0 %>
 			    	<% users.each do |follower| %>
@@ -33,5 +33,10 @@
 						</div>
 						<% i+= 1 %>
 					<% end %>
+			        <div class="f-page">
+			            <nav class="pages">
+			               <%= paginate users, class:"pagenate" %>
+			            </nav>
+			        </div>
 				</div>
 			</div>

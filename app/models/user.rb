@@ -19,11 +19,13 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :f_middles, allow_destroy: true
 
   validates :user_key, length: { maximum: 20 }
+  validates :user_key, format: { with: /\A[a-z0-9]+\z/i }
   validates :user_key, presence: true
+  validates :user_name, length: { maximum: 13 }
 
   def following?(other_user)
-    # relationships.find_by(followed_id: other_user.id)
-    followed_users.include?(other_user)
+    relationships.find_by(followed_id: other_user.id)
+    # followed_users.include?(other_user)
   end
 
   def follow!(other_user)
@@ -31,7 +33,7 @@ class User < ApplicationRecord
   end
 
   def unfollow!(other_user)
-    relationships.find_by(followed_id: other_user.id).destroy
+    relationships.find_by(followed_id: other_user.id).really_destroy!
   end
 
   def active_for_authentication?

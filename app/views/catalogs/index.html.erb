@@ -1,12 +1,12 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
-  	<h3><%= image_tag "/images/王冠.png" ,alt: "" ,class: "u_icon" %> ユーザーランキング</h3>
+  	<h3><%= image_tag "/images/王冠.png" ,alt: "" ,class: "u_icon" %> 人気ランキング</h3>
     <div class="collapse navbar-collapse" id="navbarEexample1">
       <ul class="nav navbar-nav">
-        <li><span class="ALL user-sex-label sex-label-color">ALL</span></li>
-        <li><span class="MEN user-sex-label">MEN</span></li>
-        <li><span class="WOMEN user-sex-label">WOMEN</span></li>
-        <li><span class="KIDS user-sex-label">KIDS</span></li>
+        <li><span class="rALL rank-sex-label sex-label-color">ALL</span></li>
+        <li><span class="rMEN rank-sex-label">MEN</span></li>
+        <li><span class="rWOMEN rank-sex-label">WOMEN</span></li>
+        <li><span class="rKIDS rank-sex-label">KIDS</span></li>
       </ul>
     </div>
   </div>
@@ -14,102 +14,197 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-3">
-          <%= render "tops/sidebar", users: @users %>
+			<div class="sidebar">
+				<div class="catalog-sidebar">
+					<h4><%= image_tag "/images/カメラ.png" ,alt: "" ,class: "icon" %>  探す</h4>
+					<div class="sidebar_table">
+						<div class="mo_icon mo_style">
+							<%= image_tag "/images/くし.png" ,alt: "" ,class: "icon" %>  <span class="mo_iconn style_span" data-mo="style_modal">スタイルで探す</span>
+							<div class="list-group style_modal">
+							  <p class="r-group-item list-group-item r-style-item" href="#">ベリーショート</p>
+							  <p class="r-group-item list-group-item r-style-item" href="#">ショート</p>
+							  <p class="r-group-item list-group-item r-style-item" href="#">ミディアム</p>
+							  <p class="r-group-item list-group-item r-style-item" href="#">セミロング</p>
+							  <p class="r-group-item list-group-item r-style-item" href="#">ロング</p>
+							</div>
+						</div>
+						<div class="mo_icon mo_color">
+							<%= image_tag "/images/色.png" ,alt: "" ,class: "icon" %>  <span class="mo_iconn color_span" data-mo="color_modal">髪色で探す</span>
+							<div class="list-group color_modal">
+							  <p class="r-group-item list-group-item r-color-item" href="#">ブラウン・ベージュ系</p>
+							  <p class="r-group-item list-group-item r-color-item" href="#">イエロー・オレンジ系</p>
+							  <p class="r-group-item list-group-item r-color-item" href="#">レッド・ピンク系</p>
+							  <p class="r-group-item list-group-item r-color-item" href="#">アッシュ・ブラック系</p>
+							  <p class="r-group-item list-group-item r-color-item" href="#">その他カラー</p>
+							</div>
+						</div>
+						<div class="mo_icon mo_menu">
+							<%= image_tag "/images/メニュー.png" ,alt: "" ,class: "icon" %>  <span class="mo_iconn menu_span" data-mo="menu_modal">メニューで探す</span>
+							<div class="list-group menu_modal">
+							  <p class="r-group-item list-group-item r-menu-item" href="#">カット</p>
+							  <p class="r-group-item list-group-item r-menu-item" href="#">パーマ</p>
+							  <p class="r-group-item list-group-item r-menu-item" href="#">ストレートパーマ・縮毛矯正</p>
+							  <p class="r-group-item list-group-item r-menu-item" href="#">エクステ</p>
+							  <p class="r-group-item list-group-item r-menu-item" href="#">その他</p>
+							</div>
+						</div>
+						<div class="mo_icon mo_clothes">
+							<%= image_tag "/images/服装.png" ,alt: "" ,class: "icon" %>  <span class="mo_iconn clothes_span" data-mo="clothes_modal">服装で探す</span>
+							<div class="list-group clothes_modal">
+							  <p class="r-group-item list-group-item r-clothes-item" href="#">ビジネス</p>
+							  <p class="r-group-item list-group-item r-clothes-item" href="#">カジュアル</p>
+							  <p class="r-group-item list-group-item r-clothes-item" href="#">きれいめ</p>
+							  <p class="r-group-item list-group-item r-clothes-item" href="#">モード</p>
+							  <p class="r-group-item list-group-item r-clothes-item" href="#">コンサバ</p>
+							  <p class="r-group-item list-group-item r-clothes-item" href="#">B系</p>
+							  <p class="r-group-item list-group-item r-clothes-item" href="#">ギャル系</p>
+							  <p class="r-group-item list-group-item r-clothes-item" href="#">ストリート</p>
+							  <p class="r-group-item list-group-item r-clothes-item" href="#">アメカジ</p>
+							  <p class="r-group-item list-group-item r-clothes-item" href="#">サーフ</p>
+							  <p class="r-group-item list-group-item r-clothes-item" href="#">レトロ</p>
+							  <p class="r-group-item list-group-item r-clothes-item" href="#">その他</p>
+							</div>
+						</div>
+						<div class="mo_icon mo_age">
+							<%= image_tag "/images/年齢.png" ,alt: "" ,class: "icon" %>  <span class="mo_iconn age_span" data-mo="age_modal">年齢で探す</span>
+							<div class="list-group age_modal">
+							  <p class="r-group-item list-group-item r-age-item" href="#">10歳未満</p>
+							  <p class="r-group-item list-group-item r-age-item" href="#">10代前半</p>
+							  <p class="r-group-item list-group-item r-age-item" href="#">10代後半</p>
+							  <p class="r-group-item list-group-item r-age-item" href="#">20代前半</p>
+							  <p class="r-group-item list-group-item r-age-item" href="#">20代後半</p>
+							  <p class="r-group-item list-group-item r-age-item" href="#">30代前半</p>
+							  <p class="r-group-item list-group-item r-age-item" href="#">30代後半</p>
+							  <p class="r-group-item list-group-item r-age-item" href="#">40代前半</p>
+							  <p class="r-group-item list-group-item r-age-item" href="#">40代後半</p>
+							  <p class="r-group-item list-group-item r-age-item" href="#">50代前半</p>
+							  <p class="r-group-item list-group-item r-age-item" href="#">50代後半</p>
+							  <p class="r-group-item list-group-item r-age-item" href="#">60代前半</p>
+							  <p class="r-group-item list-group-item r-age-item" href="#">60代後半</p>
+							  <p class="r-group-item list-group-item r-age-item" href="#">70代以上</p>
+							</div>
+						</div>
+						<div class="mo_icon mo_area">
+							<%= image_tag "/images/地域.png" ,alt: "" ,class: "icon" %>  <span class="mo_iconn area_span" data-mo="area_modal">地域で探す</span>
+							<div class="list-group area_modal">
+							  <p class="r-group-item list-group-item r-area-item" href="#">北海道</p>
+							  <p class="r-group-item list-group-item r-area-item" href="#">青森県</p>
+							  <p class="r-group-item list-group-item r-area-item" href="#">岩手県</p>
+							  <p class="r-group-item list-group-item r-area-item" href="#">宮城県</p>
+							  <p class="r-group-item list-group-item r-area-item" href="#">秋田県</p>
+							  <p class="r-group-item list-group-item r-area-item" href="#">山形県</p>
+							  <p class="r-group-item list-group-item r-area-item" href="#">福島県</p>
+							  <p class="r-group-item list-group-item r-area-item" href="#">茨城県</p>
+							  <p class="r-group-item list-group-item r-area-item" href="#">栃木県</p>
+							  <p class="r-group-item list-group-item r-area-item" href="#">群馬県</p>
+							  <p class="r-group-item list-group-item r-area-item" href="#">埼玉県</p>
+							  <p class="r-group-item list-group-item r-area-item" href="#">千葉県</p>
+							  <p class="r-group-item list-group-item r-area-item" href="#">東京都</p>
+							  <p class="r-group-item list-group-item r-area-item" href="#">神奈川県</p>
+							  <p class="r-group-item list-group-item r-area-item" href="#">新潟県</p>
+							  <p class="r-group-item list-group-item r-area-item" href="#">富山県</p>
+							  <p class="r-group-item list-group-item r-area-item" href="#">石川県</p>
+							  <p class="r-group-item list-group-item r-area-item" href="#">福井県</p>
+							  <p class="r-group-item list-group-item r-area-item" href="#">山梨県</p>
+							  <p class="r-group-item list-group-item r-area-item" href="#">長野県</p>
+							  <p class="r-group-item list-group-item r-area-item" href="#">岐阜県</p>
+							  <p class="r-group-item list-group-item r-area-item" href="#">静岡県</p>
+							  <p class="r-group-item list-group-item r-area-item" href="#">愛知県</p>
+							  <p class="r-group-item list-group-item r-area-item" href="#">三重県</p>
+							  <p class="r-group-item list-group-item r-area-item" href="#">滋賀県</p>
+							  <p class="r-group-item list-group-item r-area-item" href="#">京都府</p>
+							  <p class="r-group-item list-group-item r-area-item" href="#">大阪府</p>
+							  <p class="r-group-item list-group-item r-area-item" href="#">兵庫県</p>
+							  <p class="r-group-item list-group-item r-area-item" href="#">奈良県</p>
+							  <p class="r-group-item list-group-item r-area-item" href="#">和歌山県</p>
+							  <p class="r-group-item list-group-item r-area-item" href="#">鳥取県</p>
+							  <p class="r-group-item list-group-item r-area-item" href="#">島根県</p>
+							  <p class="r-group-item list-group-item r-area-item" href="#">岡山県</p>
+							  <p class="r-group-item list-group-item r-area-item" href="#">広島県</p>
+							  <p class="r-group-item list-group-item r-area-item" href="#">山口県</p>
+							  <p class="r-group-item list-group-item r-area-item" href="#">徳島県</p>
+							  <p class="r-group-item list-group-item r-area-item" href="#">香川県</p>
+							  <p class="r-group-item list-group-item r-area-item" href="#">愛媛県</p>
+							  <p class="r-group-item list-group-item r-area-item" href="#">高知県</p>
+							  <p class="r-group-item list-group-item r-area-item" href="#">福岡県</p>
+							  <p class="r-group-item list-group-item r-area-item" href="#">佐賀県</p>
+							  <p class="r-group-item list-group-item r-area-item" href="#">長崎県</p>
+							  <p class="r-group-item list-group-item r-area-item" href="#">熊本県</p>
+							  <p class="r-group-item list-group-item r-area-item" href="#">大分県</p>
+							  <p class="r-group-item list-group-item r-area-item" href="#">宮崎県</p>
+							  <p class="r-group-item list-group-item r-area-item" href="#">鹿児島県</p>
+							  <p class="r-group-item list-group-item r-area-item" href="#">沖縄県</p>
+							</div>
+						</div>
+						<div class="mo_icon mo_price">
+							<%= image_tag "/images/値段.png" ,alt: "" ,class: "icon" %>  <span class="mo_iconn price_span" data-mo="price_modal">値段で探す</span>
+							<div class="list-group price_modal">
+							  <p class="r-group-item list-group-item r-price-item" href="#">1000円未満</p>
+							  <p class="r-group-item list-group-item r-price-item" href="#">1000~1999円</p>
+							  <p class="r-group-item list-group-item r-price-item" href="#">2000~2999円</p>
+							  <p class="r-group-item list-group-item r-price-item" href="#">3000~3999円</p>
+							  <p class="r-group-item list-group-item r-price-item" href="#">4000~4999円</p>
+							  <p class="r-group-item list-group-item r-price-item" href="#">5000~5999円</p>
+							  <p class="r-group-item list-group-item r-price-item" href="#">6000~6999円</p>
+							  <p class="r-group-item list-group-item r-price-item" href="#">7000~7999円</p>
+							  <p class="r-group-item list-group-item r-price-item" href="#">8000~8999円</p>
+							  <p class="r-group-item list-group-item r-price-item" href="#">9000~9999円</p>
+							  <p class="r-group-item list-group-item r-price-item" href="#">10000円以上</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="user-sidebar">
+					<h4><%= image_tag "/images/人物.png" ,alt: "" ,class: "icon" %>  ユーザー</h4>
+					<table class="sidebar_table">
+						<tbody>
+					        <% i = 0 %>
+					        <% @users.each do |user| %>
+						        <% break if i == 5 %>
+									<tr>
+										<td>
+											<div>
+												<% if i == 0 %>
+													<div class="rank"><%= image_tag "/images/1位.png" ,alt: "" ,class: "r_icon" %></div>
+												<% elsif i == 1 %>
+													<div class="rank"><%= image_tag "/images/2位.png" ,alt: "" ,class: "r_icon" %></div>
+												<% elsif i == 2 %>
+													<div class="rank"><%= image_tag "/images/3位.png" ,alt: "" ,class: "r_icon" %></div>
+												<% elsif i == 3 %>
+													<div class="rank"><%= image_tag "/images/4位.png" ,alt: "" ,class: "r_icon" %></div>
+												<% else %>
+													<div class="rank"><%= image_tag "/images/5位.png" ,alt: "" ,class: "r_icon" %></div>
+												<% end %>
+												<div class="rank">
+							                        <% if user.profile_image.present? %>
+							                            <%= link_to users_toukou_path(user.id) do %>
+							                                <%= attachment_image_tag user, :profile_image, format: 'jpeg', class: "img-circle itiran-image-size image-hover" %>
+							                            <% end %>
+							                        <% else %>
+							                            <%= link_to users_toukou_path(user.id) do %>
+							                                <%= image_tag "/images/no_image.jpg",class: "img-circle", size: "40x40" %>
+							                            <% end %>
+							                        <% end %>
+						                    	</div>
+						                    	<div class="rank aaa">
+						           			        <%= user.user_key %><br>
+						           			        <%= image_tag "/images/人物.png" ,alt: "" ,class: "f-icon" %>
+						           			        <%= Relationship.where(followed_id: user).count %>
+						           			    </div>
+						           			</div>
+										</td>
+									</tr>
+			        			<% i+= 1 %>
+			      			<% end %>
+						</tbody>
+					</table>
+					<%= link_to "もっと見る", users_path, class: "btn btn-default user-btn" %>
+				</div>
+			</div>
         </div>
         <div class="col-lg-9">
-			<div class="ranking flex">
-			<% i = 0 %>
-	        <% @catalog.each do |catalog| %>
-		    	<div class="box">
-		    		<div class="image" style="position: relative;">
-						<% if i == 0 %>
-							<div class="rank" style="position: absolute;"><%= image_tag "/images/1位.png" ,alt: "" ,class: "top_icon" %></div>
-						<% elsif i == 1 %>
-							<div class="rank" style="position: absolute;"><%= image_tag "/images/2位.png" ,alt: "" ,class: "top_icon" %></div>
-						<% elsif i == 2 %>
-							<div class="rank" style="position: absolute;"><%= image_tag "/images/3位.png" ,alt: "" ,class: "top_icon" %></div>
-						<% end %>
-		                <%= link_to catalog_path(catalog.id) do%>
-		    		        <%= attachment_image_tag  catalog, :after_front_image, :fill, 230, 308, format: 'jpeg', class: "image-hover" %>
-		                <% end %>
-		    		</div>
-		    		<div class="btn-group like" role="group">
-		                <% if user_signed_in? && current_user != catalog.user %>
-		                    <% if catalog.favorited_by?(current_user) %>
-		                        <%= link_to fav1_catalogs_path(catalog), class: 'fav1 col-md-6', remote: true do %>
-		                            <i class="glyphicon glyphicon-plus-sign favorite-color favorite-<%= catalog.id %>" aria-hidden="true"></i>
-		                            <span class="favorite-of-<%= catalog.id %> favorite-color favorite-<%= catalog.id %>">
-		                              <%= catalog.favorites.count %>
-		                            </span>
-		                        <% end %>
-		                    <% else %>
-		                        <%= link_to fav1_catalogs_path(catalog), class: 'fav1 col-md-6', remote: true do %>
-		                            <i class="glyphicon glyphicon-plus-sign favorite-<%= catalog.id %>" aria-hidden="true"></i>
-		                            <span class="favorite-of-<%= catalog.id %> favorite-<%= catalog.id %>">
-		                              <%= catalog.favorites.count %>
-		                            </span>
-		                        <% end %>
-		                    <% end %>
-		                <% else %>
-		                    <div class="col-md-6 no-icon">
-		                        <i class="glyphicon glyphicon-plus-sign" aria-hidden="true"></i>
-		                        <span>
-		                          <%= catalog.favorites.count %>
-		                        </span>
-		                    </div>
-		                <% end %>
-		                <% if user_signed_in? && current_user != catalog.user %>
-		                    <% if catalog.liked_by?(current_user) %>
-		                        <%= link_to fav2_catalogs_path(catalog), class: 'fav2 col-md-6', remote: true do %>
-		                            <i class="glyphicon glyphicon-heart favorite-color like-icon-<%= catalog.id %> like-<%= catalog.id %>" aria-hidden="true"></i>
-		                            <span class="like-of-<%= catalog.id %> favorite-color like-<%= catalog.id %>" >
-		                              <%= catalog.likes.count %>
-		                            </span>
-		                        <% end %>
-		                    <% else %>
-		                        <%= link_to fav2_catalogs_path(catalog), class: 'fav2 col-md-6', remote: true do %>
-		                            <i class="glyphicon glyphicon-heart-empty like-icon-<%= catalog.id %> like-<%= catalog.id %>" aria-hidden="true"></i>
-		                            <span class="like-of-<%= catalog.id %> like-<%= catalog.id %>" >
-		                              <%= catalog.likes.count %>
-		                            </span>
-		                        <% end %>
-		                    <% end %>
-		                <% else %>
-		                    <div class="col-md-6 no-icon">
-		                        <i class="glyphicon glyphicon-heart-empty" aria-hidden="true"></i>
-		                        <span>
-		                          <%= catalog.likes.count %>
-		                        </span>
-		                    </div>
-		                <% end %>
-		    		</div>
-		    		<div class="user">
-		                <div class='col-md-3'>
-		                    <% if catalog.user.profile_image.present? %>
-		                        <%= link_to users_toukou_path(catalog.user.id) do %>
-		                            <%= attachment_image_tag catalog.user, :profile_image, format: 'jpeg', class: "img-circle itiran-image-size image-hover" %>
-		                        <% end %>
-		                    <% else %>
-		                        <%= link_to users_toukou_path(catalog.user.id) do %>
-		                            <%= image_tag "/images/no_image.jpg",class: "img-circle", size: "40x40" %>
-		                        <% end %>
-		                    <% end %>
-		                </div>
-		                <div class="user-key col-md-4">
-		   			        <%= catalog.user.user_key %>
-		                </div>
-		                <div class="user-<%= catalog.user.id %> col-md-5">
-	                        <% if current_user == catalog.user %>
-	                        <% else %>
-	                            <% if user_signed_in? %>
-	                                <%= render "relationships/user", user: catalog.user %>
-	                            <% end %>
-	                        <% end %>
-		                </div>
-		    		</div>
-		    	</div>
-		    <% i+= 1 %>
-	    	<% end %>
+	        <div class="rank-label-wrapper">
+	        	<%= render "catalogs/c_ranking", catalog: @catalog %>
 	    	</div>
 	    </div>
     </div>

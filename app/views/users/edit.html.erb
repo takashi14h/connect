@@ -1,102 +1,141 @@
-<div>
-	<% if flash[:notices] %>
-		<div class="flash">
-			<%= flash[:notices] %>
-		</div>
-	<% end %>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <h3 class="devise-title">プロフィール編集</h3>
+  </div>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-2">
+        </div>
+        <div class="col-lg-8 log">
+			<%= link_to "退会する", user_path(current_user.id), class: "btn btn-default user-btn", method: :delete, "data-confirm" => "本当に退会しますか?" %>
+			<div>
+				<% if flash[:notices] %>
+					<div class="flash">
+						<%= flash[:notices] %>
+					</div>
+				<% end %>
+			</div>
+			<div>
+				<%= form_for(@user) do |f| %>
+					<div class="form-group">
+						<%= f.label :profile_image, "プロフィール画像：", class:"col-lg-3 control-label"  %>
+				        <div class="">
+				        	 <%= f.attachment_field :profile_image %>
+				    	</div>
+				    </div>
+
+					<div class="form-group">
+						<%= f.label :user_name, "ニックネーム：", class:"col-lg-3 control-label" %>
+						<div class="">
+							<%= f.text_field :user_name %> (１３文字まで)
+						</div>
+					</div>
+
+					<div class="form-group">
+						<%= f.label :age, "年齢：", class:"col-lg-3 control-label" %>
+						<div class="">
+							<%= f.select :age, [["10歳未満","10歳未満"],["10代前半","10代前半"],["10代後半","10台後半"],["20代前半","20代前半"],["20代後半","20台後半"],["30代前半","30代前半"],["30代後半","30台後半"],["40代前半","40代前半"],["40代後半","40台後半"],["50代前半","50代前半"],["50代後半","50台後半"],["60代前半","60代前半"],["60代後半","60台後半"],["70歳以上","70歳以上"]], :prompt => "選択してください"%>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<%= f.label :user_address, "住所：", class:"col-lg-3 control-label" %>
+						<div class="">
+							<%= f.select :user_address, [["北海道","北海道"],["青森県","青森県"],["岩手県","岩手県"],["宮城県","宮城県"],["秋田県","秋田県"],["山形県","山形県"],["福島県","福島県"],["茨城県","茨城県"],["栃木県","栃木県"],["群馬県","群馬県"],["埼玉県","埼玉県"],["千葉県","千葉県"],["東京都","東京都"],["神奈川県","神奈川県"],["新潟県","新潟県"],["富山県","富山県"],["石川県","石川県"],["福井県","福井県"],["山梨県","山梨県"],["長野県","長野県"],["岐阜県","岐阜県"],["静岡県","静岡県"],["愛知県","愛知県"],["三重県","三重県"],["滋賀県","滋賀県"],["京都府","京都府"],["大阪府","大阪府"],["兵庫県","兵庫県"],["奈良県","奈良県"],["和歌山県","和歌山県"],["鳥取県","鳥取県"],["島根県","島根県"],["岡山県","岡山県"],["広島県","広島県"],["山口県","山口県"],["徳島県","徳島県"],["香川県","香川県"],["愛媛県","愛媛県"],["高知県","高知県"],["福岡県","福岡県"],["佐賀県","佐賀県"],["長崎県","長崎県"],["熊本県","熊本県"],["大分県","大分県"],["宮崎県","宮崎県"],["鹿児島県","鹿児島県"],["沖縄県","沖縄県"]], :prompt => "選択してください"%>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<%= f.label :sex, "性別：", class:"col-lg-3 control-label" %>
+						<div class="">
+							<%= f.select :sex, [["MEN","MEN"],["WOMEN","WOMEN"],["KIDS","KIDS"]], :prompt => "選択してください"%>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<%= f.label :face, "顔型：", class:"col-lg-3 control-label" %>
+						<div class="">
+							<%= f.select :face, [["丸型","丸型"],["卵型","卵型"],["四角","四角"],["逆三角","逆三角"],["ベース","ベース"]], :prompt => "選択してください"%>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<%= f.label :hair_shitu, "髪質：", class:"col-lg-3 control-label" %>
+						<div class="">
+							<%= f.select :hair_shitu, [["柔らかい","柔らかい"],["普通","普通"],["硬い","硬い"]], :prompt => "選択してください"%>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<%= f.label :hair_ryou, "髪量：", class:"col-lg-3 control-label" %>
+						<div class="">
+							<%= f.select :hair_ryou, [["少ない","少ない"],["普通","普通"],["多い","多い"]], :prompt => "選択してください"%>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<%= f.label :hair_futosa, "太さ：", class:"col-lg-3 control-label" %>
+						<div class="">
+							<%= f.select :hair_futosa, [["細い","細い"],["普通","普通"],["太い","太い"]], :prompt => "選択してください"%>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<%= f.label :hair_kuse, "クセ：", class:"col-lg-3 control-label" %>
+						<div class="">
+							<%= f.select :hair_kuse, [["なし","なし"],["少し","少し"],["強い","強い"]], :prompt => "選択してください"%>
+						</div>
+					</div>
+
+					<%= f.fields_for :f_middles do |f_middle| %>
+						<%= render 'f_middle_fields', f: f_middle %>
+					<% end %>
+					<div class="links">
+						<%= link_to_add_association "追加", f, :f_middles %>
+					</div>
+					<br>
+					<br>
+
+					<div class="form-group">
+						<%= f.label :introduce, "自己紹介：", class:"col-lg-3 control-label" %>
+						<div class="">
+							<%= f.text_area :introduce, size: "100x10" %>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class=" ">
+							<%= f.submit "変更する", class:"btn btn-primary btn-block", style:"margin-bottom: 30px;" %>
+						</div>
+					</div>
+				<% end %>
+			</div>
+        </div>
+        <div class="col-lg-2">
+        </div>
+    </div>
 </div>
-<div class>
-	<%= form_for(@user) do |f| %>
-		<div class="form-group">
-			<%= f.label :profile_image, "プロフィール画像：", class:"col-lg-3 control-label"  %>
-	        <div class="">
-	        	 <%= f.attachment_field :profile_image %>
-	    	</div>
-	    </div>
 
-		<div class="form-group">
-			<%= f.label :user_name, "ニックネーム：", class:"col-lg-3 control-label" %>
-			<div class="">
-				<%= f.text_field :user_name %>
-			</div>
-		</div>
 
-		<div class="form-group">
-			<%= f.label :age, "年齢：", class:"col-lg-3 control-label" %>
-			<div class="">
-				<%= f.select :age, [["10歳未満","10歳未満"],["10代前半","10代前半"],["10代後半","10台後半"],["20代前半","20代前半"],["20代後半","20台後半"],["30代前半","30代前半"],["30代後半","30台後半"],["40代前半","40代前半"],["40代後半","40台後半"],["50代前半","50代前半"],["50代後半","50台後半"],["60代前半","60代前半"],["60代後半","60台後半"],["70歳以上","70歳以上"]], :prompt => "選択してください"%>
-			</div>
-		</div>
 
-		<div class="form-group">
-			<%= f.label :user_address, "住所：", class:"col-lg-3 control-label" %>
-			<div class="">
-				<%= f.select :user_address, [["北海道","北海道"],["青森県","青森県"],["岩手県","岩手県"],["宮城県","宮城県"],["秋田県","秋田県"],["山形県","山形県"],["福島県","福島県"],["茨城県","茨城県"],["栃木県","栃木県"],["群馬県","群馬県"],["埼玉県","埼玉県"],["千葉県","千葉県"],["東京都","東京都"],["神奈川県","神奈川県"],["新潟県","新潟県"],["富山県","富山県"],["石川県","石川県"],["福井県","福井県"],["山梨県","山梨県"],["長野県","長野県"],["岐阜県","岐阜県"],["静岡県","静岡県"],["愛知県","愛知県"],["三重県","三重県"],["滋賀県","滋賀県"],["京都府","京都府"],["大阪府","大阪府"],["兵庫県","兵庫県"],["奈良県","奈良県"],["和歌山県","和歌山県"],["鳥取県","鳥取県"],["島根県","島根県"],["岡山県","岡山県"],["広島県","広島県"],["山口県","山口県"],["徳島県","徳島県"],["香川県","香川県"],["愛媛県","愛媛県"],["高知県","高知県"],["福岡県","福岡県"],["佐賀県","佐賀県"],["長崎県","長崎県"],["熊本県","熊本県"],["大分県","大分県"],["宮崎県","宮崎県"],["鹿児島県","鹿児島県"],["沖縄県","沖縄県"]], :prompt => "選択してください"%>
-			</div>
-		</div>
 
-		<div class="form-group">
-			<%= f.label :sex, "性別：", class:"col-lg-3 control-label" %>
-			<div class="">
-				<%= f.select :sex, [["MEN","MEN"],["WOMEN","WOMEN"],["KIDS","KIDS"]], :prompt => "選択してください"%>
-			</div>
-		</div>
 
-		<div class="form-group">
-			<%= f.label :face, "顔型：", class:"col-lg-3 control-label" %>
-			<div class="">
-				<%= f.select :face, [["丸型","丸型"],["卵型","卵型"],["四角","四角"],["逆三角","逆三角"],["ベース","ベース"]], :prompt => "選択してください"%>
-			</div>
-		</div>
 
-		<div class="form-group">
-			<%= f.label :hair_shitu, "髪質：", class:"col-lg-3 control-label" %>
-			<div class="">
-				<%= f.select :hair_shitu, [["柔らかい","柔らかい"],["普通","普通"],["硬い","硬い"]], :prompt => "選択してください"%>
-			</div>
-		</div>
 
-		<div class="form-group">
-			<%= f.label :hair_ryou, "髪量：", class:"col-lg-3 control-label" %>
-			<div class="">
-				<%= f.select :hair_ryou, [["少ない","少ない"],["普通","普通"],["多い","多い"]], :prompt => "選択してください"%>
-			</div>
-		</div>
 
-		<div class="form-group">
-			<%= f.label :hair_futosa, "太さ：", class:"col-lg-3 control-label" %>
-			<div class="">
-				<%= f.select :hair_futosa, [["細い","細い"],["普通","普通"],["太い","太い"]], :prompt => "選択してください"%>
-			</div>
-		</div>
 
-		<div class="form-group">
-			<%= f.label :hair_kuse, "クセ：", class:"col-lg-3 control-label" %>
-			<div class="">
-				<%= f.select :hair_kuse, [["なし","なし"],["少し","少し"],["強い","強い"]], :prompt => "選択してください"%>
-			</div>
-		</div>
 
-		<%= f.fields_for :f_middles do |f_middle| %>
-			<%= render 'f_middle_fields', f: f_middle %>
-		<% end %>
-		<div class="links">
-			<%= link_to_add_association "追加", f, :f_middles %>
-		</div>
 
-		<div class="form-group">
-			<%= f.label :introduce, "自己紹介：", class:"col-lg-3 control-label" %>
-			<div class="">
-				<%= f.text_area :introduce %>
-			</div>
-		</div>
-		<%= link_to "退会する", user_path(current_user.id), class: "btn btn-default user-btn", method: :delete, "data-confirm" => "本当に退会しますか?" %>
 
-		<div class="form-group">
-			<div class=" ">
-				<%= f.submit "変更する", class:"btn btn-primary btn-block", style:"margin-bottom: 30px;" %>
-			</div>
-		</div>
-	<% end %>
-</div>
+
+
+
+
+
+
+
+
+
+
+
 

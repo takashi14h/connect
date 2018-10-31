@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+    before_action :authenticate_user!
   def toukou
     @user = User.find(params[:id])
     @catalogs = @user.catalogs.page(params[:page]).reverse_order.per(15)
@@ -31,7 +32,7 @@ class UsersController < ApplicationController
 
   def index
     a = Relationship.group(:followed_id).order('count(follower_id) desc').pluck(:followed_id)
-    @users = User.where(id: a)
+    @users = User.where(id: a).page(params[:page]).reverse_order.per(2)
   end
 
   def search
@@ -51,7 +52,9 @@ class UsersController < ApplicationController
       redirect_to edit_user_path(@user.id)
     else
     # puts @user.errors.full_messages
-      flash[:notices] = "変更が保存されませんでした"
+      @user.errors.full_messages.each do |message|
+        flash[:notices] = message
+      end
       redirect_to edit_user_path(@user.id)
     end
   end

@@ -11,7 +11,11 @@
         <% end %>
     </div>
     <div class="mypage-user-key col-md-4">
+        <% if user.user_name.present? %>
+            <%= user.user_name %>
+        <% else %>
             <%= user.user_key %>
+        <% end %>
     </div>
     <div class="user-<%= user.id %> col-md-3">
         <% if current_user == user %>

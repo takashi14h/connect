@@ -4,68 +4,42 @@
   </div>
 </nav>
 <div class="container">
-    <div class="row">
-        <div class="col-lg-3">
-          <div class="sidebar">
-            <div class="catalog-sidebar">
-              <h4><%= image_tag "/images/カメラ.png" ,alt: "" ,class: "icon" %>  探す</h4>
-              <table class="sidebar_table">
-                <tbody>
-                  <tr>
-                    <td class="mo_icon mo_style"><%= image_tag "/images/くし.png" ,alt: "" ,class: "icon" %>  スタイルで探す</td>
-                  </tr>
-                  <tr>
-                    <td class="mo_icon mo_hair"><%= image_tag "/images/色.png" ,alt: "" ,class: "icon" %>  髪色で探す</td>
-                  </tr>
-                  <tr>
-                    <td class="mo_icon mo_menu"><%= image_tag "/images/メニュー.png" ,alt: "" ,class: "icon" %>  メニューで探す</td>
-                  </tr>
-                  <tr>
-                    <td class="mo_icon mo_clothes"><%= image_tag "/images/服装.png" ,alt: "" ,class: "icon" %>  服装で探す</td>
-                  </tr>
-                  <tr>
-                    <td class="mo_icon mo_age"><%= image_tag "/images/年齢.png" ,alt: "" ,class: "icon" %>  年齢で探す</td>
-                  </tr>
-                  <tr>
-                    <td class="mo_icon mo_area"><%= image_tag "/images/地域.png" ,alt: "" ,class: "icon" %>  地域で探す</td>
-                  </tr>
-                  <tr>
-                    <td class="mo_icon mo_price"><%= image_tag "/images/値段.png" ,alt: "" ,class: "icon" %>  値段で探す</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-        <div class="ranking-wrapper">
-      <div class="container col-lg-9 index">
-          <div class="flex follow-box">
-            <% @users.each do |follower| %>
-              <div class="follow-label">
-                  <div class='mypage-image col-md-5'>
-                      <% if follower.profile_image.present? %>
-                          <%= link_to users_toukou_path(follower.id) do %>
-                              <%= attachment_image_tag follower, :profile_image, format: 'jpeg',class: "img-circle follow-size image-hover" %>
-                          <% end %>
-                      <% else %>
-                          <%= link_to users_toukou_path(follower.id) do %>
-                              <%= image_tag "/images/no_image.jpg",class: "img-circle", size: "70x70" %>
-                          <% end %>
-                      <% end %>
-                  </div>
-                  <div class="follow-user-key col-md-4">
+  <div class="row">
+    <div class="col-lg-1">
+    </div>
+    <div class="container col-lg-9 index">
+        <div class="flex follow-box">
+          <% @users.each do |follower| %>
+            <div class="follow-label">
+                <div class='mypage-image col-md-5'>
+                    <% if follower.profile_image.present? %>
+                        <%= link_to users_toukou_path(follower.id) do %>
+                            <%= attachment_image_tag follower, :profile_image, format: 'jpeg',class: "img-circle follow-size image-hover" %>
+                        <% end %>
+                    <% else %>
+                        <%= link_to users_toukou_path(follower.id) do %>
+                            <%= image_tag "/images/no_image.jpg",class: "img-circle", size: "70x70" %>
+                        <% end %>
+                    <% end %>
+                </div>
+                <div class="follow-user-key col-md-4">
+                  <% if follower.user_name.present? %>
+                      <%= follower.user_name %>
+                  <% else %>
                       <%= follower.user_key %>
-                  </div>
-                  <div class="user-<%= follower.id %> col-md-3">
-                      <% if current_user == follower %>
-                      <% else %>
-                          <%= render "relationships/user", user: follower %>
-                      <% end %>
-                  </div>
-              </div>
-            <% end %>
-        </div>
+                  <% end %>
+                </div>
+                <div class="user-<%= follower.id %> col-md-3">
+                    <% if current_user == follower %>
+                    <% else %>
+                        <%= render "relationships/user", user: follower %>
+                    <% end %>
+                </div>
+            </div>
+          <% end %>
       </div>
+    </div>
+    <div class="col-lg-1">
     </div>
   </div>
 </div>
