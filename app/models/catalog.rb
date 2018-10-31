@@ -14,6 +14,8 @@ class Catalog < ApplicationRecord
 	  geocoded_by :address
 	  after_validation :geocode
 	  is_impressionable counter_cache: true
+
+	    validates :after_front_image, presence: true
     
     def favorited_by?(user)
       favorites.where(user_id: user.id).exists?
